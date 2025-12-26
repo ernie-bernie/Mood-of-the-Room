@@ -24,7 +24,7 @@ QUESTIONS:
   -How can I make it so constant stuff(white noise, light on in the room, someone walking)doesn't affect it too much
   -What sensors do I need to get that data?                                        ANSWER: a light sensor, noise sensor, and motion sensor are needed
   -Would using nearest neighbor data or weighted data be more efficient
-
+  -Would the noise affect the end result? How could I overcome that
 SPECIFIC RESEARCH:
   -to classify as an AI, it should learn from its past runs
   -Instead of looking for the best fit of data, I could have it graph the points(maybe on a 3D graph depending on the amount of data), and then find the closest point(CALL THIS Alpha.01)
@@ -36,6 +36,7 @@ SPECIFIC RESEARCH:
   -The computer can make a graph of infinite dimensions, only humans need the visuals
   -3-5 sensors are best
   -I should use data voting and clustering(I dont know what that is yet) to get more accurate results(Alpha.02)
+
 
 PROBLEMS:
   -I dont know how to compare different data sets, especially because they are comparing different units/subjects
