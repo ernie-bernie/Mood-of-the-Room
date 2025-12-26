@@ -1,7 +1,7 @@
 # Mood-of-the-Room
 # 12/25/2025: 8th Grade
 ## Project Structure:
- - [Alpha](Alpha) - Best idea/Idea #1 overview, my research, questions, and problems are in [Alpha.md](Alpha.md)
+ - [Alpha](Alpha) - Best idea/Idea #1 overview, my research, questions, and problems are in [Alpha_overview.md](Alpha_overview.md)
 
 # PRE-PROJECT ANALYSIS:
 
