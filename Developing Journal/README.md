@@ -26,6 +26,6 @@ iteration while developing a data-driven system to infer environmental â€œmoodâ€
 from sensor data.
 
 # Weekly Reports
-[Week #1](Week #1.md): 12/25/25-01/01/26
+[Week #1.md](Week #1.md): 12/25/25-01/01/26
 
 
