@@ -1,19 +1,3 @@
-Alpha:
-  -It will take a reading THREE SEPERATE TIMES and average them to find the most accurate data
-  -A program that uses data that was previously given to find which one(s) best fit the current data(what is currently going on in the ro
-  -It will then use the best fit of data to provide the mood of the current room
-  -Eventually will not only tell the mood when asked, but will update every minute or so
-
-Alpha.01:
-  -Same basics as Alpha, but with a different method to reach the answer
-  -It will graph the provided points, and check which one the current data best fits
-  -This ensures that there is an answer close to the right one
-  -This version will also take input from the user, and if it is right, it will save the data, and if it is wrong, it will ask for the correct data
-
-Alpha.02:
-  -Same as Alpha.01, but instead of checking for the closest distance between only one point, it will use data clustering stuff and voting to find the best mood
-  -I need to find out how to get the computer to put the points in a graph, and how the voting and clustering works
-
 QUESTIONS:
   -How will it find the best fit?                                                  ANSWER: We will use a graph, and find the closest point(or use a different method to find it)
   -Could I use the line of best fit, or is that different?                         ANSWER: Even if the line of best fit works(which I dont think it would), I think using a graph and distances would be the best way to do it
