@@ -23,7 +23,7 @@ problems, and iterate on solutions before formal implementation.
 - Alpha.04 - I will now use a WEIGHTED average of points in a specific window. This ensures that the data is basically noiseless, and will make it so that sudden changes dont ruin the data
 - 
 
-## Problems & Limitations
+## Starting Problems & Limitations
 - Mood labels are subjective
 - Sudden changes are delayed by averaging
 - Limited sensor diversity
