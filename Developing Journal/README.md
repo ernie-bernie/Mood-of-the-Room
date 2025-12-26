@@ -26,6 +26,8 @@ intentional and reflects the iterative development process.
 The goal of this journal is to demonstrate continuous learning, curiosity, and
 iteration while developing a data-driven system to infer environmental “mood”
 from sensor data.
+These journals are written as informal engineering notes rather than polished
+reports. The emphasis is on capturing reasoning and learning in real time.
 
 ## Weekly Reports
 - [Week 1](Week_1.md) : 12/25/25-01/01/26
