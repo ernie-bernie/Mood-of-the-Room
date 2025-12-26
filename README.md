@@ -1,6 +1,6 @@
 # Mood-of-the-Room
 ## Project Structure:
- - [Alpha](Alpha) - My main idea, research, questions, and problems are in [Alpha.md](Alpha.md)
+ - [Alpha](Alpha) - Idea #1 overview, My research, questions, and problems are in [Alpha.md](Alpha.md)
 
 # PRE-PROJECT ANALYSIS:
 
