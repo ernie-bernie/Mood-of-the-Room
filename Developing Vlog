@@ -26,5 +26,8 @@ IDEAS:
 
 OVERVIEW OF WEEK:
 -I had thought of two seperate ways to infer the mood of the room, finding the nearest neighbor on a graph, or by using some weighted distances. (write if you chose and how u chose it)
+-I realized that instead of trying to visualize this, I should trust that the computer can "visualize" it by itself, and I should focus on refining data and the other logistical stuff
+-I now understand that instead of making a set program, I need to make something that "grows" and learn through time to be considered an AI
+-This week, I created many different versions of Alpha, and eventually ended on using (put version of alpha)
 NEXT STEPS:
 
