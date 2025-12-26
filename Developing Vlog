@@ -3,16 +3,11 @@ THIS IS WHERE I WILL PUT UPDATES ON PROGRESS AND RESEARCH
 Week 1; 12/25/25 - 01/01/26:
 
 Goals for this week:
-I want to keep this week's focus on researching, particularly on AI models and how I can make one.
-I want to brainstorm a few ideas for what framework I can use.
-I want to see what stuff I would need to overcome
+  I want to keep this week's focus on researching, particularly on AI models and how I can make one.
+  I want to brainstorm a few ideas for what framework I can use.
+  I want to see what stuff I would need to overcome
+  I want to edit my best idea, making more and more iterations, finalizing an idea by the end of the week
 
-RESEARCH:
--An AI is something that isnt just doing a set program, it needs to learn from the data provided and reach its own end point
--If I make an AI, I have to give it data at first, I can't just make it a bunch of if else commands, and it has to get better as it is used more
--An AI learns from data
--A basic AI learns from data, recognizes PATTERNS, and makes predictions.(The pattern part is what I want to focus on in this project)
--
 IDEAS:
   IDEA #1(We'll call it "Alpha"):
     -Make a program that uses data that was previously given to find which one(s) best fit the current data(what is currently going on in the room)
