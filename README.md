@@ -6,13 +6,13 @@
 
 # 12/25/2025: 8th Grade
 
-  # Project Question:
+  ## Project Question:
       - Can a computer infer the emotional “mood” of a physical space using only simple sensor data? 
-  # Why I want to do this:
+  ## Why I want to do this:
       - I want to explore AI models, and I want to see how accurate I can make one of these models with detecting something which is usually limited to animals. 
       - This is my way to explore how code can be a way to do a task which is primarily done by humans. I have never looked into what classifies something as AI, so I think researching this project will teach me a lot, so I am excited. 
       - Also, understanding environments through data has applications in smart buildings, accessibility, and human-centered AI, so this can help me in the future.
-  # My goals for this project:
+  ## My goals for this project:
       - Research ways to take measurements on different aspects of the room, such as noise level, light level, and movement.
       - Use a program(AI Model?) to figure out what the different readings could mean.
       - Test in a variety of atmospheres and areas, seeing what will affect the output, either in a positive or negative way.
@@ -22,12 +22,12 @@
       - An added bonus would be to add a confidence rating, so the human knows how confident the program is
       - I also want to experiment with my weighted average to see if it makes a huge difference. During the testing stages, I would try to compare the inferences of when the program averaged the data to when it didn't. This will show me how accurate it is, and how much reducing noise can help the final result.
 
-  # What I want to learn:
+  ## What I want to learn:
       - I know that something called signal noise is involved, but don't know what it is, so learning that is a must
       - I want to learn about AI models and what makes them up, I want to see if I can make some simple ones
       - I want to explore heuristics, and I want to see if I can make an AI incorporate a few
 
-  # Limitations:
+  ## Limitations:
       - I am in school doing extracurriculars, so time might be an issue
       - I do not want to spend a lot of money on this, so I will have to try to get most things from previous projects(Arduino from motion sim?)
       - I don't know much about AI models, so this project may not be possible for me
@@ -35,7 +35,7 @@
       - Noise could distort the data and readings, so I have to overcome that
 
 # MID-PROJECT AND POST-PROJECT ANALYSIS:
-  # What I learned:
+  ## What I learned:
     - I learned about something called noise in the data. I found out that this is basically just random changes or electrical interference that changes the true data. To overcome this, I think that averaging three sets of data taken consecutively would smooth out the data and reduce noise. However, after looking into this a bit more and thinking of different scenarios, I came across one major trade-off. This is that averaging could potentially introduce latency, which is a delay in the response. For example, if someone turns off the lights suddenly while the readings are being taken, then the data would not reflect light or dark, but somewhere in between, skewed to one side. This could pose an issue.
     - I learned that instead of just taking the average of the points, using a moving average filter would significantly improve accuracy, since then it will give the most recent point the most "say" in the final result, meaning if someone turned off the light last second, it will lean more towards the "dark side"
     -
