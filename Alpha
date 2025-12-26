@@ -1,0 +1,16 @@
+ALPHA:
+  BASIC FUNCTIONS:
+    -It will take a reading THREE SEPERATE TIMES and average them to find the most accurate data
+    -
+  QUESTIONS:
+    -How will it find the best fit?
+    -Could I use the line of best fit, or is that different?
+    -How much data does it need to be accurate?
+    -Could I make it so it shows a graph?
+    -How many sensors do I need for an accurate reading?
+    -How much will small fluctuations in readings affect it(will they add up)?
+    -How can I make it so constant stuff(white noise, light on in the room, someone walking)doesn't affect it too much
+    -What sensors do I need to get that data?
+  SPECIFIC RESEARCH:
+    -
+  PROBLEMS:
