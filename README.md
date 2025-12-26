@@ -17,6 +17,7 @@ PRE-PROJECT ANALYSIS:
       -I want to try to encorporate a sort of an AI model that notices patterns, I need to look into that.
       -Even if I do not accomplish my task, I want to at least learn about this stuff.
       -An added bonus would be to add a confidence rating, so the human knows how confident the program is
+      -I also want to experiment with my weighted average to see if it makes a huge difference. During the testing stages, I would try to compare the inferences of when the program averaged the data to when it didn't. This will show me how accurate it is, and how much reducing noise can help the final result.
 
   What I want to learn:
       -I know that something called signal noise is involved, but don't know what it is, so learning that is a must
