@@ -9,11 +9,13 @@ to present finalized solutions.
 
 ## What Each Entry Includes
 Each weekly journal may include:
-- What was implemented or tested that week
-- Research questions that emerged
-- Problems or unexpected results
+- Goals I set for that week
+- Unanswered research questions that emerged
+- Problems or unexpected results that I need to solve
 - Design decisions and trade-offs
 - Reflections on what worked and what did not
+- My next steps
+  
 
 ## How to Read This Folder
 Entries are organized in seperate files in this folder labeled by the week. Earlier entries may contain
@@ -26,6 +28,6 @@ iteration while developing a data-driven system to infer environmental â€œmoodâ€
 from sensor data.
 
 ## Weekly Reports
-[Week_1.md](Week_1.md) : 12/25/25-01/01/26
+- [Week_1](Week_1.md) : 12/25/25-01/01/26
 
 
