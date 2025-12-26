@@ -4,7 +4,7 @@ This folder contains early research, problems, questions, and design notes for t
 Mood of the Room project. The goal of Alpha is to explore ideas, identify
 problems, and iterate on solutions before formal implementation.
 
-- Main work is in [Alpha.md](Alpha.md)
+- Main work is in [Alpha.md](Alpha_overview.md)
 - Testing is in [Alpha Testing](Alpha_Testing_and_Experiments.md)
 
 ## Research Questions
