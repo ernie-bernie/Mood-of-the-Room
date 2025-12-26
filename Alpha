@@ -23,6 +23,7 @@ QUESTIONS:
   -How much will small fluctuations in readings affect it(will they add up)?       
   -How can I make it so constant stuff(white noise, light on in the room, someone walking)doesn't affect it too much
   -What sensors do I need to get that data?                                        ANSWER: a light sensor, noise sensor, and motion sensor are needed
+  -Would using nearest neighbor data or weighted data be more efficient
 
 SPECIFIC RESEARCH:
   -to classify as an AI, it should learn from its past runs
