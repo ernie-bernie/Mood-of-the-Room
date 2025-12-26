@@ -29,3 +29,8 @@ PRE-PROJECT ANALYSIS:
       -I don't know much about AI models, so this project may not be possible for me
       -Mood labels are subjective, so the data might not be completely "accurate", if accurate is a thing here
       -Noise could distort the data and readings, so I have to overcome that
+
+MID-PROJECT AND POST-PROJECT ANALYSIS:
+  What I learned:
+    -I learned about something called noise in the data. I found out that this is basically just random changes or electrical interference that changes the true data. To overcome this, I think that averaging three sets of data taken consecutively would smooth out the data and reduce noise. However, after looking into this a bit more and thinking of different scenarios, I came across one major trade-off. This is that averaging could potentially introduce latency, which is a delay in the response. For example, if someone turns off the lights suddenly while the readings are being taken, then the data would not reflect light or dark, but somewhere in between, skewed to one side. This could pose an issue.
+    -
