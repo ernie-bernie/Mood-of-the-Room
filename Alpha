@@ -9,8 +9,11 @@ Alpha.01:
   -It will graph the provided points, and check which one the current data best fits
   -This ensures that there is an answer close to the right one
   -This version will also take input from the user, and if it is right, it will save the data, and if it is wrong, it will ask for the correct data
+
 Alpha.02:
   -Same as Alpha.01, but instead of checking for the closest distance between only one point, it will use data clustering stuff and voting to find the best mood
+  -I need to find out how to get the computer to put the points in a graph, and how the voting and clustering works
+
 QUESTIONS:
   -How will it find the best fit?                                                  ANSWER: We will use a graph, and find the closest point(or use a different method to find it)
   -Could I use the line of best fit, or is that different?                         ANSWER: Even if the line of best fit works(which I dont think it would), I think using a graph and distances would be the best way to do it
@@ -32,6 +35,7 @@ SPECIFIC RESEARCH:
   -The computer can make a graph of infinite dimensions, only humans need the visuals
   -3-5 sensors are best
   -I should use data voting and clustering(I dont know what that is yet) to get more accurate results(Alpha.02)
+
 PROBLEMS:
   -I dont know how to compare different data sets, especially because they are comparing different units/subjects
   -I can't use line of best fit, since different moods could produce the same answer([L:10, N:20, M:10] and [L:10, N:10, M:20])
