@@ -1,10 +1,9 @@
 # Mood-of-the-Room
+# 12/25/2025: 8th Grade
 ## Project Structure:
  - [Alpha](Alpha) - Best idea/Idea #1 overview, my research, questions, and problems are in [Alpha.md](Alpha.md)
 
 # PRE-PROJECT ANALYSIS:
-
-# 12/25/2025: 8th Grade
 
   ## Project Question:
       - Can a computer infer the emotional “mood” of a physical space using only simple sensor data? 
