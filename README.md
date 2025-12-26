@@ -8,7 +8,7 @@ PRE-PROJECT ANALYSIS:
       
   Why I want to do this:
       
-      I want to explore AI models, and I want to see how accurate I can make one of these models with detecting something which is usually limited to animals. This is my way to explore how code can be a way to do a task which is primarily done by humans. I have never looked into what classifies something as AI, so I think researching this project will teach me a lot, so I am excited.
+      I want to explore AI models, and I want to see how accurate I can make one of these models with detecting something which is usually limited to animals. This is my way to explore how code can be a way to do a task which is primarily done by humans. I have never looked into what classifies something as AI, so I think researching this project will teach me a lot, so I am excited. Also, understanding environments through data has applications in smart buildings, accessibility, and human-centered AI, so this can help me in the future.
 
   My goals for this project:
   
@@ -18,6 +18,7 @@ PRE-PROJECT ANALYSIS:
       -Write an entry on my progress, what I learned, what failed, and my next steps(Will try to do weekly).
       -I want to try to encorporate a sort of an AI model that notices patterns, I need to look into that.
       -Even if I do not accomplish my task, I want to at least learn about this stuff.
+      -An added bonus would be to add a confidence rating, so the human knows how confident the program is
 
   What I want to learn:
   
@@ -30,3 +31,5 @@ PRE-PROJECT ANALYSIS:
       -I am in school doing extracurriculars, so time might be an issue
       -I do not want to spend a lot of money on this, so I will have to try to get most things from previous projects(Arduino from motion sim?)
       -I don't know much about AI models, so this project may not be possible for me
+      -Mood labels are subjective, so the data might not be completely "accurate", if accurate is a thing here
+      -Noise could distort the data and readings, so I have to overcome that
