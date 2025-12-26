@@ -4,6 +4,8 @@ This folder contains early research, problems, questions, and design notes for t
 Mood of the Room project. The goal of Alpha is to explore ideas, identify
 problems, and iterate on solutions before formal implementation.
 
+Main work is in [Alpha.md](Alpha.md)
+
 ## Research Questions
 - Can room “mood” be inferred from sound, motion, and light data?
 - How does sensor noise affect classification accuracy?
@@ -16,7 +18,7 @@ problems, and iterate on solutions before formal implementation.
 - Use user feedback to improve future predictions
 
 ## Versions
-- Alpha - -A program that uses data that was previously given to find which one(s) best fit the current data(what is currently going on in the room(No clear method to find that yet)
+- Alpha - A program that uses data that was previously given to find which one(s) best fit the current data(what is currently going on in the room(No clear method to find that yet)
 - Alpha.01 – Basic nearest-point classification. Finds the nearest neighbor on a graph, then uses that mood
 - Alpha.02 – Instead of comparing only one point, it will compare with many points and use data voting to find the best mood
 - Alpha.03 - I will average three data points taken in a row to reduce noise and smooth out the data(This could pose a problem such as if someone turns off a light last second)
