@@ -5,6 +5,7 @@ Mood of the Room project. The goal of Alpha is to explore ideas, identify
 problems, and iterate on solutions before formal implementation.
 
 Main work is in [Alpha.md](Alpha.md)
+Testing is in [Alpha Testing](Alpha_Testing_and_Experiments.md)
 
 ## Research Questions
 - Can room “mood” be inferred from sound, motion, and light data?
