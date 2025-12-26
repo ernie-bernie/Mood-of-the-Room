@@ -8,7 +8,7 @@
   - I want to see what stuff I would need to overcome
   - I want to edit my best idea, making more and more iterations, finalizing an idea by the end of the week
 
-##IDEAS:
+## IDEAS:
   - IDEA #1(We'll call it "Alpha"):
     - Make a program that uses data that was previously given to find which one(s) best fit the current data(what is currently going on in the room)
     - It will then use the best fit of data to provide the mood of the current room
