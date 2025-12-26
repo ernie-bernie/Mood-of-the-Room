@@ -33,4 +33,5 @@ PRE-PROJECT ANALYSIS:
 MID-PROJECT AND POST-PROJECT ANALYSIS:
   What I learned:
     -I learned about something called noise in the data. I found out that this is basically just random changes or electrical interference that changes the true data. To overcome this, I think that averaging three sets of data taken consecutively would smooth out the data and reduce noise. However, after looking into this a bit more and thinking of different scenarios, I came across one major trade-off. This is that averaging could potentially introduce latency, which is a delay in the response. For example, if someone turns off the lights suddenly while the readings are being taken, then the data would not reflect light or dark, but somewhere in between, skewed to one side. This could pose an issue.
+    -I learned that instead of just taking the average of the points, using a moving average filter would significantly improve accuracy, since then it will give the most recent point the most "say" in the final result, meaning if someone turned off the light last second, it will lean more towards the "dark side"
     -
