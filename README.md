@@ -2,6 +2,7 @@
 # 12/25/2025: 8th Grade
 ## Project Structure:
  - [Alpha](Alpha) - Best idea/Idea #1 overview, my research, questions, and problems are in [Alpha_overview](Alpha/Alpha_overview.md)
+ - [Developing Journal](Developing_Journal) - Where I log my progress weekly
 
 # PRE-PROJECT ANALYSIS:
 
