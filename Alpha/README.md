@@ -26,6 +26,8 @@ problems, and iterate on solutions before formal implementation.
 - Alpha.04 - I will now use a WEIGHTED average of points in a specific window. This significantly reduces noise, and will make it so that sudden changes don't ruin the data
 - Alpha.05 - In this version, before using the data collected, I will make sure it is scaled properly by using min-max normalization. This ensures that one data point will not dramatically change the result
 - Alpha.06 - In this version, I will incorporate data voting to reduce noise and get the most accurate answer. I will collect votes from three of the closest neighbors. I will find the closest neighbor with Manhattan distances since one high data value/spike will not dramatically change the final result, unlike what would happen if I used Euclidean distances
+- Alpha.07 - In this version, a confidence rating would be added, based on how many neighbors agree, how close the neighbors were, and how accurate recent predictions are. This will show the user how much it can trust it
+
 
 ## Starting Problems & Limitations
 - Mood labels are subjective
