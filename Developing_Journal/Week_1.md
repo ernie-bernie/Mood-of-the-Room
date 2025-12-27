@@ -37,9 +37,9 @@
 - I now understand that instead of making a set program, I need to make something that "grows" and learn through time to be considered an AI
 - This week, I created many different versions of Alpha, and eventually ended on using (put version of alpha)
 - I do not know if k=3 or k=5 will work better, I think that starting with 3 would be best, maybe testing and comparing k=5 I realized that I cannot just use the data straight from the sensors, but should instead normalize it by doing min-max normalization (Linear scaling)
--
 - I decided on using Manhattan distance because it treats each sensor contribution independently and is less sensitive to large deviations in a single sensor channel.
 - To handle label noise (and wrong user input), I think that using multiple neighbor voting would work best, as this will make it so one wrong data point will not affect it too much
+- Data voting would be good to use, as it will reduce noise and choose the best option. For now, I think using 3 votes would be best (Non-weighted, I can incorporate that later if needed)
 
 ## NEXT STEPS:
 - Decide what version of Alpha will be the first implementation
