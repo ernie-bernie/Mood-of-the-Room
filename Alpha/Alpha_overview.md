@@ -16,6 +16,8 @@
   - Would using nearest neighbor data or weighted data be more efficient
   - Would the noise affect the end result? How could I overcome that
   - How do I normalize sensor data, since they are all in different units?
+  - Does the distance I use matter?
+    - ANSWER: Yes, because different distance metrics measure differently, meaning it will affect the final result
 
 # SPECIFIC RESEARCH:
   - to classify as an AI, it should learn from its past runs
@@ -40,3 +42,4 @@
   - I want to make sure that it is a form of AI, no matter how basic, but I do not really understand the distinctions
   - Sensor noise will affect readings
   - For Alpha.01, if the human tells it the wrong mood, it will mess up the rest of the data. I need to take the most average data I think
+  - There are different metrics for measuring distances, and one may be the best for this scenario. 
