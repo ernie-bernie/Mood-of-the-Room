@@ -7,8 +7,11 @@ Test if this program would infer the correct mood of the room, but with no hardw
 
 ### Setup:
 Assume k = 3, with the sensors being light, motion, and noise sensors
+  
 Assume that the previously labeled data points are true, and that the labels were given by the same person so there are no subjective errors
+  
 Assume that all of the data points are listed after being normalized
+  
 No averaging yet
 
 ### Data Points
