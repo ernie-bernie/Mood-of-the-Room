@@ -15,6 +15,7 @@
     - ANSWER: a light sensor, noise sensor, and motion sensor are needed
   - Would using nearest neighbor data or weighted data be more efficient
   - Would the noise affect the end result? How could I overcome that
+  - How do I normalize sensor data, since they are all in different units?
 
 # SPECIFIC RESEARCH:
   - to classify as an AI, it should learn from its past runs
@@ -29,6 +30,9 @@
   - I should use data voting and clustering (I don't know what that is yet) to get more accurate results (Alpha.02)
   - To reduce noise, I could average three data points that were taken in a row, which will smooth out the data. However, if there is a sudden change in the room (someone turns off the lights) there will be some latency and the data will be not as accurate.
   - A better way to do this would be to use weighted averages (giving more recent data more "weight"). This would improve stability with the cost of a small increase in latency. (Alpha.03)
+  - I would need to normalize the sensor data by making sure that they are in the same scale because if one has a much larger scale than the others, it would disproportionally influence the result
+  - For my work with data that is in a fixed range, I should use min-max normalization (also known as linear scaling)
+  - 
 
 
 # Fundamental Challenges and Constraints:
