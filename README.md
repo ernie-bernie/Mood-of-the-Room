@@ -32,9 +32,9 @@
       - I want to explore heuristics, and I want to see if I can make an AI incorporate a few of them
 
   ### Limitations:
-      - I am in school doing extracurriculars, so time might be an issue
+      - I am in school doing lots of extracurriculars, so time might be an issue
       - I do not want to spend a lot of money on this, so I will have to try to get most things from previous projects (Arduino from motion sim?)
-      - I don't know much about AI models, so this project may not be possible for me
+      - I don't know much about AI models, so this project will be challenging for me
       - Mood labels are subjective, so the data might not be completely "accurate", if accurate is a thing here
       - Noise could distort the data and readings, so I have to overcome that
 
