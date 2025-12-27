@@ -36,6 +36,8 @@
   - For my work with data that is in a fixed range, I should use min-max normalization (also known as linear scaling)
   - For my work, using Manhatten distances would probably work best, as it is not affected too much by sudden spikes in one sensor (Someone coughing, someone walking by, etc.)
   - Using Manhattan + k nearest neighbors would be very good for my work, as one human error would not dramatically affect the final inference
+  - Data voting means asking multiple points around it what they think, instead of just trusting one
+  - I should use data voting because my project has possible human mistakes, subjective mood labels, noisy sensor data, and fluctuating environments 
 
 
 # Fundamental Challenges and Constraints:
