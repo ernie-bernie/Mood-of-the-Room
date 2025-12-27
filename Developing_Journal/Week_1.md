@@ -20,7 +20,12 @@
     - This can also be done automatically
     - Would be easier (BUT IS LAME)
     - Could use as backup plan...we shall see
-
+## Problems:
+- I do not know how to compare different data sets with different units
+- I do not know if graphing high-dimensional data is possible yet
+- I do not know if nearest neighbor is enough
+- I do not know about data clustering yet
+- I do not know what qualifies as AI
 
 ## OVERVIEW OF WEEK:
 - I had thought of two separate ways to infer the mood of the room, finding the nearest neighbor on a graph, or by using some weighted distances. (write if you chose and how u chose it)
