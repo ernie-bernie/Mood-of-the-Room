@@ -27,6 +27,7 @@ problems, and iterate on solutions before formal implementation.
 - Alpha.05 - In this version, before using the data collected, I will make sure it is scaled properly by using min-max normalization. This ensures that one data point will not dramatically change the result
 - Alpha.06 - In this version, I will incorporate data voting to reduce noise and get the most accurate answer. I will collect votes from three of the closest neighbors. I will find the closest neighbor with Manhattan distances since one high data value/spike will not dramatically change the final result, unlike what would happen if I used Euclidean distances
 - Alpha.07 - In this version, a confidence rating would be added, based on how many neighbors agree, how close the neighbors were, and how accurate recent predictions are. This will show the user how much it can trust it
+- Alpha.08 - If no clear majority exits, the system may return an "uncertain" answer instead of forcing an answer that has a large chance of being incorrect
 
 
 ## Starting Problems & Limitations
