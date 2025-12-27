@@ -5,6 +5,8 @@
 ## Project Structure:
  - [Alpha](Alpha) - Best idea/Idea #1 overview, my research, questions, and problems are in [Alpha_overview](Alpha/Alpha_overview.md)
  - [Developing Journal](Developing_Journal) - Where I log my progress weekly
+ - [Alpha Experiments](Alpha/Alpha_Testing_and_Experiments.md):
+   - Experiment #1 - Distance-based voting using Manhattan distance
 
 ## PRE-PROJECT ANALYSIS:
 
