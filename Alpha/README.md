@@ -7,7 +7,7 @@ problems, and iterate on solutions before formal implementation.
 - Main work is in [Alpha_overview.md](Alpha_overview.md)
 - Testing and experiments are in [Alpha Testing](Alpha_Testing_and_Experiments.md)
 - Experiments:
-    - (Experiment #1)[Alpha_Testing_and_Experiments.md] - Distance-based voting using Manhattan distance
+    - [Experiment #1](Alpha_Testing_and_Experiments.md) - Distance-based voting using Manhattan distance
 
 ## Research Questions
 - Can room “mood” be inferred from sound, motion, and light data?
