@@ -23,7 +23,8 @@ problems, and iterate on solutions before formal implementation.
 - Alpha.01 – Basic nearest-point classification. Finds the nearest neighbor on a graph, then uses that mood
 - Alpha.02 – Instead of comparing only one point, it will compare with many points and use data voting to find the best mood
 - Alpha.03 - I will average three data points taken in a row to reduce noise and smooth out the data (this could pose a problem such as if someone turns off a light last second)
-- Alpha.04 - I will now use a WEIGHTED average of points in a specific window. This significantly reduces noise, and will make it so that sudden changes don't ruin the data 
+- Alpha.04 - I will now use a WEIGHTED average of points in a specific window. This significantly reduces noise, and will make it so that sudden changes don't ruin the data
+- Alpha.05 - In this version, before using the data collected, I will make sure it is scaled properly by using min-max normalization. This ensures that one data point will not dramatically change the result
 
 ## Starting Problems & Limitations
 - Mood labels are subjective
