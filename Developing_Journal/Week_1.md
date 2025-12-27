@@ -1,4 +1,4 @@
-# Week #1, 12/25/25-01/01/26
+# Week #1, Started 12/25/25
 ### This repository currently reflects the research and design phase. Code implementation will begin once core assumptions and approaches are validated
 ## Goals for this week:
   - I want to keep this week's focus on researching, particularly on AI models and how I can make one.
