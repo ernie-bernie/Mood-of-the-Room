@@ -29,6 +29,7 @@
 - I do not know what qualifies as AI
 - There are different ways to measure the distance, I need to look into that
 - I do not really know what k-NN is and how voting works
+- What if there is a split in the votes, or if the program is uncertain? Would forcing a mood or saying that it is uncertain be better? I need to look into that
   
 
 ## OVERVIEW OF WEEK:
