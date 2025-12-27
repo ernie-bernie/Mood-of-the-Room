@@ -31,10 +31,8 @@
   - A better way to do this would be to use weighted averages (giving more recent data more "weight"). This would improve stability with the cost of a small increase in latency. (Alpha.03)
 
 
-# PROBLEMS:
-  - I don't know how to compare different data sets, especially because they are comparing different units/subjects
+# Fundamental Challenges and Constraints:
   - I can't use line of best fit, since different moods could produce the same answer ([L:10, N:20, M:10] and [L:10, N:10, M:20])
   - I want to make sure that it is a form of AI, no matter how basic, but I do not really understand the distinctions
-  - For Alpha.01, I would need to figure out how to graph the points, and I do not know if that is possible yet
-  - For Alpha.01, I want to make sure that it  would find the most correct solution, so finding the closest point may not be enough
+  - Sensor noise will affect readings
   - For Alpha.01, if the human tells it the wrong mood, it will mess up the rest of the data. I need to take the most average data I think
