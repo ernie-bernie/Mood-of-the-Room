@@ -27,6 +27,8 @@
 - I do not know if nearest neighbor is enough
 - I do not know about data clustering yet
 - I do not know what qualifies as AI
+- There are different ways to measure the distance, I need to look into that
+- I do not really know what k-NN is and how voting works
 
 ## OVERVIEW OF WEEK:
 - I had thought of two separate ways to infer the mood of the room, finding the nearest neighbor on a graph, or by using some weighted distances. (write if you chose and how u chose it)
