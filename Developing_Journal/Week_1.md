@@ -20,7 +20,8 @@
     - This can also be done automatically
     - Would be easier (BUT IS LAME)
     - Could use as backup plan...we shall see
-## Problems:
+
+## Open Challenges This Week:
 - I do not know how to compare different data sets with different units
 - I do not know if graphing high-dimensional data is possible yet
 - I do not know if nearest neighbor is enough
