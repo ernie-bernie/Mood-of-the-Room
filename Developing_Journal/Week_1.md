@@ -36,6 +36,7 @@
 - I now understand that instead of making a set program, I need to make something that "grows" and learn through time to be considered an AI
 - This week, I created many different versions of Alpha, and eventually ended on using (put version of alpha)
 - I do not know if k=3 or k=5 will work better, I think that starting with 3 would be best, maybe testing and comparing k=5
+- I realized that I cannot just use the data straight from the sensors, but should instead normalize it by doing min-max normalization (Linear scaling)
 
 ## NEXT STEPS:
 - Decide what version of Alpha will be the first implementation
