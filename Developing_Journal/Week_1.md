@@ -49,3 +49,4 @@
 ## NEXT STEPS:
 - Decide what version of Alpha will be the first implementation
 - Figure out what k should equal
+- Test if using weighted averages would increase stability and how it would affect responsiveness
