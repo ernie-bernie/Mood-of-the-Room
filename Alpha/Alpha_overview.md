@@ -34,7 +34,8 @@
   - A better way to do this would be to use weighted averages (giving more recent data more "weight"). This would improve stability with the cost of a small increase in latency. (Alpha.03)
   - I would need to normalize the sensor data by making sure that they are in the same scale because if one has a much larger scale than the others, it would disproportionally influence the result
   - For my work with data that is in a fixed range, I should use min-max normalization (also known as linear scaling)
-  - 
+  - For my work, using Manhatten distances would probably work best, as it is not affected too much by sudden spikes in one sensor (Someone coughing, someone walking by, etc.)
+  - Using Manhattan + k nearest neighbors would be very good for my work, as one human error would not dramatically affect the final inference
 
 
 # Fundamental Challenges and Constraints:
