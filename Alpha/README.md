@@ -40,4 +40,4 @@ problems, and iterate on solutions before formal implementation.
 ## Next Steps
 - Test different averaging window sizes
 - Compare weighted vs simple moving averages
-- 
+
