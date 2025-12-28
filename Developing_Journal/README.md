@@ -28,5 +28,5 @@ reports. The emphasis is on capturing reasoning and learning in real time.
 
 ## Weekly Reports
 - [Week 1](Week_1.md) : Started 12/25/25
-
+- [Week 2](Week_2.md) : Started 12/27/25
 
