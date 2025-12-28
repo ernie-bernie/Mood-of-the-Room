@@ -29,8 +29,7 @@
 - I do not know what qualifies as AI
 - There are different ways to measure the distance, I need to look into that
 - I do not really know what k-NN is and how voting works
-- What if there is a split in the votes, or if the program is uncertain? Would forcing a mood or saying that it is uncertain be better? I need to look into that
-- 
+- What if there is a split in the votes, or if the program is uncertain? Would forcing a mood or saying that it is uncertain be better? I need to look into that 
   
 
 ## OVERVIEW OF WEEK:
@@ -46,7 +45,13 @@
 - Experiment #1 was very succesful in my opinion, as it revealed an issue in the process while also validating some of my other methods. It showed me that k=3, k=4, and k=5 all produce stable answers, so I can pick one of those when the time comes.
 - 
 
+## End-of-Week Reflection
+- What worked: I think that overall, I made very good progress on my Alpha versions and research, and I am very happy with the results of the experiment, as they showed me a lot. The Manhattan method worked very well, and using data voting with the nearest neighbor proved to work
+- What didn't: This week, my experiment surfaced one issue. It showed me that even if the mood is not in the labled points, the output will be the closest neighbor's label, which means I have to put in something to prevent a forced, incorrect answer.
+- What surprised me: I was surprised that changing the value of k did not change the output. I had expected it to change, since there would be more farther data points voting.
+  
 ## NEXT STEPS:
 - Decide what version of Alpha will be the first implementation
 - Figure out what k should equal
 - Test if using weighted averages would increase stability and how it would affect responsiveness
+- Run Experiment #2, testing weighted averages
