@@ -170,3 +170,120 @@ This experiment showed that using Manhattan distance with k-nearest neighbors an
 This experiment also revealed an important limitation: when a "medium" input was tested, the system defaulted to the closest existing label (calm) because there was no dataset with a medium label. This demonstrates that the model cannot infer moods that were not already represented in the dataset.
 
 Overall, this experiment validates the use of Manhattan distance-based voting as an approach that I can use while surfacing the need for better/more labels or an "uncertain" answer option. Based on these results, the next step is to evaluate how temporal averaging and weighted averaging affect classification stability and responsiveness.
+
+
+---
+
+## Experiment #2: 12/28/25
+### This experiment has no code or hardware, it is just to compare averaging methods
+
+### Goal:
+Test how different types of averaging (no averaging, simple average, and weighted average) affect stability, during jitter and sudden changes, and responsiveness
+
+### Setup:
+Assume the sensors are light (L), motion (M), and noise sensors (N)
+  
+Assume that the previously labeled data points are true, and that the labels were given by the same person so there are no subjective errors
+  
+Assume that all of the data points are listed after being normalized
+  
+Assume that there are two mood labels: calm and chaotic
+
+Assume that the classifier is k nearest neighbor voting using Manhattan distance (Start with k = 3, maybe do k = 5)
+
+Assume that the data points in each "current reading" section are taking consecutively
+### Data Points
+#### Previously Stored Data:
+(L,N,M) → Mood
+
+- (65, 53, 22) → chaotic
+- (30, 10, 2) → calm
+- (31, 11, 3) → calm
+- (74, 39, 13) → chaotic
+- (80, 40, 8) → chaotic
+- (29, 7, 2) → calm
+  
+#### Current Readings:
+##### Calm With Slight Jitter:
+- (24, 6, 4)
+- (26, 7, 3)
+- (23, 5, 5)
+  
+##### Calm → Chaotic (Lights turn off with no warning):
+- (24, 6, 4) (calm)
+- (26, 6, 4) (calm)
+- (70, 43, 17) (chaotic)
+  
+##### Chaotic → Calm:
+- (70, 43, 17) (chaotic)
+- (70, 43, 17) (chaotic)
+- (24, 6, 4) (calm)
+  
+### Procedure:
+For each scenario (Slight jitter, calm → chaotic, chaotic → calm):
+- No averaging: classify the third point directly using k nearest neighbor voting
+- Simple average: Find the average and classify using k nearest neighbor voting
+- Weighted average: Find the weighted average (using 0.2, 0.3, and 0.5 respectively) and classify using k nearest neighbor voting
+- Compare the results of these votings, seeing which method produced the most stable inferences and how they affect responsiveness
+
+### Distances
+#### Calm with Slight Jitter:
+##### Reading One: (24, 6, 4):
+- Distance to chaotic (65, 53, 22) → 41 + 47 + 18 = 106​
+- Distance to calm (30, 10, 2) → 6 + 4 + 2 = 12
+- Distance to calm (31, 11, 3) → 7 + 5 + 1 = 13
+- Distance to chaotic (74, 39, 13) → 50 + 33 + 9 = 92
+- Distance to chaotic (80, 40, 8) → 56 + 34 + 4 = 94
+- Distance to calm (29, 7, 2) → 5 + 4 + 2 = 8
+
+##### Reading Two: (26, 7, 3):
+- Distance to chaotic (65, 53, 22) → 39 + 46 + 19 = 104​
+- Distance to calm (30, 10, 2) → 4 + 3 + 1 = 8
+- Distance to calm (31, 11, 3) → 5 + 4 + 0 = 9
+- Distance to chaotic (74, 39, 13) → 48 + 32 + 10 = 90
+- Distance to chaotic (80, 40, 8) → 54 + 33 + 5 = 92
+- Distance to calm (29, 7, 2) → 3 + 0 + 1 = 4
+
+##### Reading Three: (23, 5, 5):
+- Distance to chaotic (65, 53, 22) → 42 + 48 + 17 = 107​
+- Distance to calm (30, 10, 2) → 7 + 5 + 3 = 15
+- Distance to calm (31, 11, 3) → 8 + 6 + 2 = 16
+- Distance to chaotic (74, 39, 13) → 51 + 34 + 8 = 93
+- Distance to chaotic (80, 40, 8) → 57 + 35 + 3 = 95
+- Distance to calm (29, 7, 2) → 6 + 2 + 3 = 11
+  
+#### Calm → Chaotic:
+##### Readings One and Two: (24, 6, 4): 
+- Distance to chaotic (65, 53, 22) → 41 + 47 + 18 = 106​
+- Distance to calm (30, 10, 2) → 6 + 4 + 2 = 12
+- Distance to calm (31, 11, 3) → 7 + 5 + 1 = 13
+- Distance to chaotic (74, 39, 13) → 50 + 33 + 9 = 92
+- Distance to chaotic (80, 40, 8) → 56 + 34 + 4 = 94
+- Distance to calm (29, 7, 2) → 5 + 1 + 2 = 8
+
+##### Reading Three: (70, 43, 17):
+- Distance to chaotic (65, 53, 22) → 5 + 10 + 5 = 20​
+- Distance to calm (30, 10, 2) → 40 + 33 + 15 = 88
+- Distance to calm (31, 11, 3) → 39 + 32 + 14 = 85
+- Distance to chaotic (74, 39, 13) → 4 + 4 + 4 = 12
+- Distance to chaotic (80, 40, 8) → 10 + 3 + 9 = 22
+- Distance to calm (29, 7, 2) → 41 + 36 + 15 = 92
+
+#### Chaotic → Calm:
+##### Readings One and Two: (70, 43, 17):
+- Distance to chaotic (65, 53, 22) → 5 + 10 + 5 = 20​
+- Distance to calm (30, 10, 2) → 40 + 33 + 15 = 88
+- Distance to calm (31, 11, 3) → 39 + 32 + 14 = 85
+- Distance to chaotic (74, 39, 13) → 4 + 4 + 4 = 12
+- Distance to chaotic (80, 40, 8) → 10 + 3 + 9 = 22
+- Distance to calm (29, 7, 2) → 41 + 36 + 15 = 92
+
+##### Reading Three: (24, 6, 4):
+- Distance to chaotic (65, 53, 22) → 41 + 47 + 18 = 106​
+- Distance to calm (30, 10, 2) → 6 + 4 + 2 = 12
+- Distance to calm (31, 11, 3) → 7 + 5 + 1 = 13
+- Distance to chaotic (74, 39, 13) → 50 + 33 + 9 = 92
+- Distance to chaotic (80, 40, 8) → 56 + 34 + 4 = 94
+- Distance to calm (29, 7, 2) → 5 + 1 + 2 = 8
+
+# DO AVERAGES AND COMPUTATIONS
