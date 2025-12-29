@@ -286,4 +286,27 @@ For each scenario (Slight jitter, calm → chaotic, chaotic → calm):
 - Distance to chaotic (80, 40, 8) → 56 + 34 + 4 = 94
 - Distance to calm (29, 7, 2) → 5 + 1 + 2 = 8
 
-# DO AVERAGES AND COMPUTATIONS
+### Computations when k = 3
+#### No Averaging (Just use third point for voting):
+##### Calm With Slight Jitter:
+Third point: (23, 5, 5)
+
+k nearest neighbors: 
+- calm (30, 10, 2)
+- calm (31, 11, 3)
+- calm (29, 7, 2)
+
+Final classification: calm
+
+##### Calm → Chaotic:
+Third point: (70, 43, 17)
+
+k nearest neighbors:
+- chaotic (65, 53, 22)
+- chaotic (74, 39, 13)
+- chaotic (80, 40, 8)
+
+Final classification: chaotic
+### Experiment Notes:
+#### For Tests with No Averaging:
+- For all of the test readings ("calm with slight jitter" test reading, there was a stable and accurate result, with all of the 3 nearest neighbors agreeing on the same mood label
