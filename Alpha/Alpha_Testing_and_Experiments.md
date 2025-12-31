@@ -307,9 +307,18 @@ k nearest neighbors:
 - chaotic (80, 40, 8)
 
 Final classification: chaotic
+
+##### Chaotic → Calm:
+Third point: (24, 6, 4)
+
+k nearest neighbors:
+- calm (30, 10, 2)
+- calm (31, 11, 3)
+- calm (29, 7, 2)
+  
 ### Experiment Notes:
 #### For Tests with No Averaging:
 - For all of the test readings ("calm with slight jitter" test reading, there was a stable and accurate result, with all of the 3 nearest neighbors agreeing on the same mood label
 - However, the distances to the nearest neighbors changed between readings, meaning the input point was moving due to small changes in sensor values
 - This shows that the nearest neighbor voting is enough to handle label noise in the previously stored data, but not the fluctuations in the current sensor readings
-- In scenarios with sudden changes, having no averaging allows the
+- In scenarios with sudden changes, having no averaging allows the system to respond immediately
