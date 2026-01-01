@@ -224,7 +224,7 @@ For each scenario (Slight jitter, calm → chaotic, chaotic → calm):
 - No averaging: classify the third point directly using k nearest neighbor voting
 - Simple average: Find the average and classify using k nearest neighbor voting
 - Weighted average: Find the weighted average (using 0.2, 0.3, and 0.5 respectively) and classify using k nearest neighbor voting
-- Compare the results of these votings, seeing which method produced the most stable inferences and how they affect responsiveness
+- Compare the results of these votings, seeing which method produced the most stable inferences and how they affect responsiveness and latency
 
 ### No Averaging Distances
 #### Calm with Slight Jitter:
@@ -311,7 +311,7 @@ For each scenario (Slight jitter, calm → chaotic, chaotic → calm):
 - Distance to chaotic (80, 40, 8) → 25.34 + 9.34 + 4.66 = 39.34
 - Distance to calm (29, 7, 2) → 25.66 + 23.66 + 10.66 = 59.98
 
-### Computations when k = 3
+### Computations
 #### No Averaging (Just use third point for voting):
 ##### Calm With Slight Jitter:
 Third point: (23, 5, 5)
@@ -346,8 +346,11 @@ Final classification: calm
 
 #### Simple Averaging Points (Rounded to nearest hundredth):
 Averaged Point One: (L1+L2+L3)/3 
+
 Averaged Point Two: (N1+N2+N3)/3
+
 Averaged Point Three: (M1+M2+M3)/3
+
 ##### Calm with Slight Jitter:
 Current readings:
 - (24, 6, 4)
@@ -355,7 +358,9 @@ Current readings:
 - (23, 5, 5)
 
 Averaged Point One Calculations: (24 + 26 + 23) / 3 = 73 / 3 = 24.33
+
 Averaged Point Two Calculations: (6 + 7 + 5) / 3 = 18 / 3 = 6.00
+
 Averaged Point Three Calculations: (4 + 3 + 5) / 3 = 12 / 3 = 4.00
 
 Final Point with Simple Averaging: (24.33, 6.00, 4.00) 
@@ -374,7 +379,9 @@ Current readings:
 - (70, 43, 17) (chaotic)
 
 Averaged Point One Calculations: (24 + 26 + 70) / 3 = 120 / 3 = 40.00
+
 Averaged Point Two Calculations: (6 + 6 + 43) / 3 = 55 / 3 = 18.33
+
 Averaged Point Three Calculations: (4 + 4 + 17) / 3 = 25 / 3 = 8.33
 
 Final Point with Simple Averaging: (40.00, 18.33, 8.33)
@@ -391,7 +398,9 @@ Current Readings:
 - (24, 6, 4) (calm)
 
 Averaged Point One Calculations: (70 + 70 + 24) / 3 = 164 / 3 = 54.66
+
 Averaged Point Two Calculations: (43 + 43 + 6) / 3 = 92 / 3 = 30.66
+
 Averaged Point Three Calculations: (17 + 17 + 4) / 3 = 38 / 3 = 12.66
 
 Final Point with Simple Averaging: (54.66, 30.66, 12.66)
@@ -403,12 +412,62 @@ k nearest neighbors:
 
 Final classification: chaotic
 
+#### Weighted Averaging Points (Rounded to nearest hundredth):
+
+Averaged Point One: 0.2*(L1)+0.3*(L2)+0.5*(L3) 
+
+Averaged Point Two: (N1+N2+N3)/3
+
+Averaged Point Three: (M1+M2+M3)/3
+
+##### Calm with Slight Jitter:
+Current readings:
+- (24, 6, 4)
+- (26, 7, 3)
+- (23, 5, 5)
+
+Averaged Point One Calculations: 0.2 * (24) + 0.3 * (26) + 0.5 * (23) = 4.8 + 7.8 + 11.5 = 24.10
+
+Averaged Point Two Calculations: 0.2*(6) + 0.3*(7) + 0.5*(5) = 1.2 + 2.1 + 2.5 = 5.80
+
+Averaged Point Three Calculations: 0.2 * (4) + 0.3 * (3) + 0.5 * (5) = 0.8 + 0.9 + 2.5 = 4.20
+
+Final Point with Weighted Averaging: (24.10, 5.80, 4.20) 
+
+##### Calm → Chaotic:
+
+Current readings:
+- (24, 6, 4) (calm)
+- (26, 6, 4) (calm)
+- (70, 43, 17) (chaotic)
+
+Averaged Point One Calculations: 0.2 * (24) + 0.3 * (24) + 0.5 * (70) = 4.8 + 7.2 + 35 = 47.00
+
+Averaged Point Two Calculations: 0.2 * (6) + 0.3 * (6) + 0.5 * (43) = 1.2 + 1.8 + 21.5 = 24.50
+
+Averaged Point Three Calculations: 0.2 * (4) + 0.3 * (4) + 0.5 * (17) = 0.8 + 1.2 + 8.5 = 10.50
+
+Final Point with Weighted Averaging: (47.00, 24.50, 10.50)
+
+##### Chaotic → Calm:
+
+# DOODODODOODODOod THISISISIISISIS
+
 ### Experiment Notes:
 #### For Tests with No Averaging:
-- For all of the test readings ("calm with slight jitter" test reading, there was a stable and accurate result, with all of the 3 nearest neighbors agreeing on the same mood label
+- For all of the test readings ("calm with slight jitter", calm → chaotic, chaotic → calm), there was a stable and accurate result, with all of the 3 nearest neighbors agreeing on the same mood label
 - However, the distances to the nearest neighbors changed between readings, meaning the input point was moving due to small changes in sensor values
 - This shows that the nearest neighbor voting is enough to handle label noise in the previously stored data, but not the fluctuations in the current sensor readings
 - In scenarios with sudden changes, having no averaging allows the system to respond immediately, but may come at the cost of increased sensitivity to noise
 
 #### For Tests with Simple Averaging
-# DOOOOO THISS
+- For the first test reading ("calm with slight jitter"), the result was accurate.
+  Averaging helped find a calm middle ground, reducing the effect of noise.
+- However, for the other two test readings (calm → chaotic and chaotic → calm),
+  the final classifications were incorrect and showed noticeable lag.
+- This confirms the presence of latency: even though the room’s mood had already
+  changed, simple averaging kept the averaged point closer to the previous state,
+  resulting in an incorrect output.
+- The main limitation of simple averaging is that the model "remembers" older
+  states too strongly. While this greatly stabilizes noise, it reduces
+  responsiveness to sudden changes, motivating the need for weighted averaging.
