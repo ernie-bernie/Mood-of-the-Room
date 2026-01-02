@@ -61,7 +61,7 @@ This experiment will show me how many mood labels is too many labels. It will al
 - Avoiding over-smoothing important changes
   
 ## Notes & Observations
-(This section will be filled in as the week progresses.)
+- Experiment 2 taught me a lot about how the different methods (no averaging, simple averaging, and weighted averaging) would affect accuracy and responsiveness, especially when mood flips were involved. No averaging produced a very stable and quick response, but it is affected greatly by reading noise. Simple averaging reduced noise, but introduced a very high amount of latency, meaning that all of the mood labels were the incorrect mood. Finally, using weighted averaging reduced noise just as simple averaging did, but also had less latency, with at least one of the data points being the correct mood in all of the tests. This showed me that using a weighted average would be the most logical choice for this scenario.
   
 ## End-of-Week Reflection (to be completed later)
 - What worked:
