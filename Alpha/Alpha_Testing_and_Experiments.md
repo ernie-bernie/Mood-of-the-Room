@@ -173,7 +173,7 @@ Overall, this experiment validates the use of Manhattan distance-based voting as
 
 
 ---
-#experiment-2
+
 ## Experiment #2: 12/28/25-01/01/26
 ### This experiment has no code or hardware, it is just to compare averaging methods
 ### This experiment is organized by method rather than chronological order, reflecting how the analysis was conducted.
