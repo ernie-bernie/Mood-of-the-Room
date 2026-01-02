@@ -174,14 +174,15 @@ Overall, this experiment validates the use of Manhattan distance-based voting as
 
 ---
 
-## Experiment #2: 12/28/25
+## Experiment #2: 12/28/25-01/01/26
 ### This experiment has no code or hardware, it is just to compare averaging methods
+### This experiment is organized by method rather than chronological order, reflecting how the analysis was conducted.
 
 ### Goal:
 Test how different types of averaging (no averaging, simple average, and weighted average) affect stability, during jitter and sudden changes, and responsiveness
 
 ### Setup:
-Assume the sensors are light (L), motion (M), and noise sensors (N)
+Assume the sensors are light (L), noise (N), and moption sensors (M)
   
 Assume that the previously labeled data points are true, and that the labels were given by the same person so there are no subjective errors
   
@@ -311,6 +312,31 @@ For each scenario (Slight jitter, calm → chaotic, chaotic → calm):
 - Distance to chaotic (80, 40, 8) → 25.34 + 9.34 + 4.66 = 39.34
 - Distance to calm (29, 7, 2) → 25.66 + 23.66 + 10.66 = 59.98
 
+### Weighted Averaging Distances
+#### Calm with Slight Jitter:
+- Distance to chaotic (65, 53, 22) → 40.90 + 47.20 + 17.80 = 105.90​
+- Distance to calm (30, 10, 2) → 5.90 + 4.20 + 2.20 = 12.30
+- Distance to calm (31, 11, 3) → 6.90 + 5.20 + 1.20 = 13.30
+- Distance to chaotic (74, 39, 13) → 40.90 + 33.20 + 8.80 = 91.90
+- Distance to chaotic (80, 40, 8) → 55.90 + 34.20 + 3.80 = 93.90
+- Distance to calm (29, 7, 2) → 4.90 + 1.20 + 2.20 = 8.30
+
+#### Calm → Chaotic:
+- Distance to chaotic (65, 53, 22) → 18 + 29.50 + 11.50 = 58.00​
+- Distance to calm (30, 10, 2) → 17 + 14.50 + 8.50 = 40.00
+- Distance to calm (31, 11, 3) → 16 + 13.50 + 7.50 = 37.00
+- Distance to chaotic (74, 39, 13) → 27 + 14.50 + 2.50 = 44.00
+- Distance to chaotic (80, 40, 8) → 33 + 15.50 + 2.50 = 51.00
+- Distance to calm (29, 7, 2) → 18 + 17.50 + 8.50 = 44.00
+
+#### Chaotic → Calm:
+- Distance to chaotic (65, 53, 22) → 18 + 29.50 + 11.50 = 58.00​
+- Distance to calm (30, 10, 2) → 17 + 14.50 + 8.50 = 40.00
+- Distance to calm (31, 11, 3) → 16 + 13.50 + 7.50 = 37.00
+- Distance to chaotic (74, 39, 13) → 27 + 14.50 + 2.50 = 44.00
+- Distance to chaotic (80, 40, 8) → 33 + 15.50 + 2.50 = 51.00
+- Distance to calm (29, 7, 2) → 18 + 17.50 + 8.50 = 44.00
+  
 ### Computations
 #### No Averaging (Just use third point for voting):
 ##### Calm With Slight Jitter:
@@ -416,9 +442,9 @@ Final classification: chaotic
 
 Averaged Point One: 0.2*(L1)+0.3*(L2)+0.5*(L3) 
 
-Averaged Point Two: (N1+N2+N3)/3
+Averaged Point Two: 0.2*(N1)+0.3*(N2)+0.5*(N3) 
 
-Averaged Point Three: (M1+M2+M3)/3
+Averaged Point Three: 0.2*(M1)+0.3*(M2)+0.5*(M3) 
 
 ##### Calm with Slight Jitter:
 Current readings:
@@ -433,6 +459,13 @@ Averaged Point Two Calculations: 0.2*(6) + 0.3*(7) + 0.5*(5) = 1.2 + 2.1 + 2.5 =
 Averaged Point Three Calculations: 0.2 * (4) + 0.3 * (3) + 0.5 * (5) = 0.8 + 0.9 + 2.5 = 4.20
 
 Final Point with Weighted Averaging: (24.10, 5.80, 4.20) 
+
+k nearest neighbors:
+- calm (30, 10, 2)
+- calm (31, 11, 3)
+- calm (29, 7, 2)
+
+Final Classification: calm
 
 ##### Calm → Chaotic:
 
@@ -449,9 +482,34 @@ Averaged Point Three Calculations: 0.2 * (4) + 0.3 * (4) + 0.5 * (17) = 0.8 + 1.
 
 Final Point with Weighted Averaging: (47.00, 24.50, 10.50)
 
+k nearest neighbors:
+- calm (30, 10, 2)
+- calm (31, 11, 3)
+- chaotic (74, 39, 13)
+
+Final Classification: calm
+
 ##### Chaotic → Calm:
 
-# DOODODODOODODOod THISISISIISISIS
+Current readings:
+- (70, 43, 17) (chaotic)
+- (70, 43, 17) (chaotic)
+- (24, 6, 4) (calm)
+
+Averaged Point One Calculations: 0.2 * (70) + 0.3 * (70) + 0.5 * (24) = 14 + 21 + 12 = 47.00
+
+Averaged Point Two Calculations: 0.2 * (43) + 0.3 * (43) + 0.5 * (6) = 8.6 + 12.3 + 3 = 24.50
+
+Averaged Point Three Calculations: 0.2 * (17) + 0.3 * (17) + 0.5 * (4) = 3.4 + 5.1 + 2 = 10.50
+
+Final Point with Weighted Averaging: (47.00, 24.50, 10.50)
+
+k nearest neighbors:
+- calm (30, 10, 2)
+- calm (31, 11, 3)
+- chaotic (74, 39, 13)
+
+Final Classification: calm
 
 ### Experiment Notes:
 #### For Tests with No Averaging:
@@ -461,13 +519,31 @@ Final Point with Weighted Averaging: (47.00, 24.50, 10.50)
 - In scenarios with sudden changes, having no averaging allows the system to respond immediately, but may come at the cost of increased sensitivity to noise
 
 #### For Tests with Simple Averaging
-- For the first test reading ("calm with slight jitter"), the result was accurate.
-  Averaging helped find a calm middle ground, reducing the effect of noise.
-- However, for the other two test readings (calm → chaotic and chaotic → calm),
-  the final classifications were incorrect and showed noticeable lag.
-- This confirms the presence of latency: even though the room’s mood had already
-  changed, simple averaging kept the averaged point closer to the previous state,
-  resulting in an incorrect output.
-- The main limitation of simple averaging is that the model "remembers" older
-  states too strongly. While this greatly stabilizes noise, it reduces
-  responsiveness to sudden changes, motivating the need for weighted averaging.
+- For the first test reading ("calm with slight jitter"), the result was accurate. Averaging helped find a calm middle ground, reducing the effect of noise.
+- However, for the other two test readings (calm → chaotic and chaotic → calm), the final classifications were incorrect and showed noticeable lag.
+- This confirms the presence of latency: even though the room’s mood had already changed, simple averaging kept the averaged point closer to the previous state, resulting in an incorrect output.
+- The main limitation of simple averaging is that the model "remembers" older states too strongly. While this greatly stabilizes noise, it reduces responsiveness to sudden changes, motivating the need for weighted averaging.
+
+#### For Tests with Weighted Averaging
+- For the first test reading ("calm with slight jitter"), the result was accurate. Averaging helped find a calm middle ground, similar to the simple averaging tests, with slight favor for the more recent readings.
+- In the calm → chaotic and chaotic → calm tests, weighted averaging reduced latency compared to simple averaging by shifting the averaged point closer to the most recent state. This caused one of the nearest neighbors to shift toward the correct mood, indicating reduced latency compared to simple averaging.
+- However, weighted averaging did not immediately change the mood based on sudden changes, showing that some latency was still present due to the influence of older readings.
+- Compared to simple averaging, using weighted averaging represents a better balance between stability and responsiveness. It also reduces noise in the readings while allowing the system to respond faster to changes, making it a more suitable approach for mood inference.
+
+#### Overall
+
+- No averaging produced the fastest responses to changes in room conditions, correctly reflecting sudden mood shifts immediately. However, this approach is highly sensitive to noise and small fluctuations in sensor readings.
+
+- Simple averaging greatly reduced noise and stabilized the system’s output, but introduced significant latency. In both calm → chaotic and chaotic → calm tests, the system lagged behind the true room state, with none of the nearest neighbors matching the true mood
+
+- Weighted averaging provided a compromise between these two approaches. It reduced noise while responding faster than simple averaging, though some latency still remained due to the influence of older readings, with one of the nearest neighbors matching the true mood
+  
+## Conclusion:
+
+This experiment demonstrated that averaging and voting address different sources of instability in the system. Voting improves robustness against mislabeled or imperfect stored data, while averaging stabilizes noisy sensor inputs over time.
+
+Simple averaging is effective for noise reduction but causes unacceptable latency when room conditions change suddenly. Weighted averaging improves responsiveness by prioritizing recent readings while still smoothing noise, making it a better choice for real-time inference.
+
+Based on these results, weighted averaging combined with distance-based voting is the most appropriate approach moving forward. Future work will focus on tuning weights, defining uncertainty thresholds, and expanding mood labels to improve accuracy and expressiveness.
+
+  
