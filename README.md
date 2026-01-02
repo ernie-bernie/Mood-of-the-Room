@@ -6,7 +6,8 @@
  - [Alpha](Alpha) - Best idea/Idea #1 overview, my research, questions, and problems are in [Alpha_overview](Alpha/Alpha_overview.md)
  - [Developing Journal](Developing_Journal) - Where I log my progress weekly
  - [Alpha Experiments](Alpha/Alpha_Testing_and_Experiments.md):
-   - Experiment #1 - Distance-based voting using Manhattan distance
+   - [Experiment #1](Alpha/Alpha_Testing_and_Experiments.md) - Distance-based voting using Manhattan distance
+   - [Experiment #2](https://github.com/ernie-bernie/Mood-of-the-Room/blob/main/Alpha/Alpha_Testing_and_Experiments.md#experiment-2-122825-010126) - Testing different averaging methods and how they affect stability and responsiveness
 
 ## PRE-PROJECT ANALYSIS:
 
