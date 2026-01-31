@@ -546,4 +546,25 @@ Simple averaging is effective for noise reduction but causes unacceptable latenc
 
 Based on these results, weighted averaging combined with distance-based voting is the most appropriate approach moving forward. Future work will focus on tuning weights, defining uncertainty thresholds, and expanding mood labels to improve accuracy and expressiveness.
 
+
+---
+
+## Experiment #3: 1/31/26
+### This experiment has no code or hardware, it is just to compare averaging methods
+
+### Goal:
+
+Add one more mood label (medium) and add a confidence rating based on the split of the votes
+
+### Setup:
+Assume the sensors are light (L), noise (N), and moption sensors (M)
   
+Assume that the previously labeled data points are true, and that the labels were given by the same person so there are no subjective errors
+  
+Assume that all of the data points are listed after being normalized
+  
+Assume that there are three mood labels: calm, medium, and chaotic
+
+Assume that the classifier is k nearest neighbor voting using Manhattan distance (Start with k = 3, maybe do k = 5)
+
+Assume that the data points in each "current reading" section are taking consecutively
