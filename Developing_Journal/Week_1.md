@@ -36,7 +36,7 @@
   
 
 ## OVERVIEW OF WEEK:
-- I had thought of two separate ways to infer the mood of the room, finding the nearest neighbor on a graph, or by using some weighted distances. (write if you chose and how u chose it)
+- I had thought of two separate ways to infer the mood of the room, finding the nearest neighbor on a graph, or by using some weighted distances. I found that using nearest neighbor is very reliable, and still have to test weighted distances
 - I realized that instead of trying to visualize this, I should trust that the computer can "visualize" it by itself, and I should focus on refining data and the other logistical stuff
 - I now understand that instead of making a set program, I need to make something that "grows" and learn through time to be considered an AI
 - This week, I created many different versions of Alpha, and eventually ended on using (put version of alpha)
