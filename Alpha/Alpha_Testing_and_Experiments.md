@@ -549,12 +549,12 @@ Based on these results, weighted averaging combined with distance-based voting i
 
 ---
 
-## Experiment #3: 1/31/26
-### This experiment has no code or hardware, it is just to compare averaging methods
+## Experiment #3: 3/14/26
+### This experiment has no code or hardware, it is just to add some key features and test what they will do
 
 ### Goal:
 
-Add one more mood label (medium) and add a confidence rating based on the split of the votes
+Add one more mood label (medium) and add a confidence rating based on the split of the votes. Test if adding these things helps with a more accurate final answer.
 
 ### Setup:
 Assume the sensors are light (L), noise (N), and moption sensors (M)
@@ -565,6 +565,260 @@ Assume that all of the data points are listed after being normalized
   
 Assume that there are three mood labels: calm, medium, and chaotic
 
-Assume that the classifier is k nearest neighbor voting using Manhattan distance (Start with k = 3, maybe do k = 5)
+Assume that the classifier is k nearest neighbor voting using Manhattan distance (k = 5)
+
+Assume that the points were averaged with weights of 0.2, 0.3, and 0.5, with the last being the most recent point
 
 Assume that the data points in each "current reading" section are taking consecutively
+
+###  *Part 1*
+### Data Points
+#### Previously Stored Data:
+(L,N,M) → Mood
+
+- (65, 53, 22) → chaotic
+- (30, 10, 2) → calm
+- (31, 11, 3) → calm
+- (74, 39, 13) → chaotic
+- (80, 40, 8) → chaotic
+- (29, 7, 2) → calm
+- (45, 24, 9) → medium
+- (50, 28, 10) → medium
+- (42, 22, 8) → medium
+
+#### Current Data Points:
+##### Clearly Calm:
+- (24, 6, 4)
+##### Clearly Medium:
+- (44, 23, 9)
+##### In-between Medium and Chaotic:
+- (56, 31, 11)
+
+### Procedure
+For each point:
+- Compute Manhattan distances to all stored data
+- Find the k closest neighbors (k=5 for now)
+- Find the predicted mood using majority voting
+- Calculate the "confidence rating" by finding the proportion of the k nearest neighbors that agree
+- Compare whether the middle label helps improve accuracy
+- Compare whether the confidence score gives a good understanding on uncertain cases
+
+### Calculations:
+#### Clearly Calm:
+
+Current reading: (24, 6, 4)
+
+##### Distances:
+- Distance to chaotic (65, 53, 22) → 41 + 47 + 18 = 106
+- Distance to calm (30, 10, 2) → 6 + 4 + 2 = 12
+- Distance to calm (31, 11, 3) → 7 + 5 + 1 = 13
+- Distance to chaotic (74, 39, 13) → 50 + 33 + 9 = 92
+- Distance to chaotic (80, 40, 8) → 56 + 34 + 4 = 94
+- Distance to calm (29, 7, 2) → 5 + 1 + 2 = 8
+- Distance to medium (45, 24, 9) → 21 + 18 + 5 = 44
+- Distance to medium (50, 28, 10) → 26 + 22 + 6 = 54
+- Distance to medium (42, 22, 8) → 18 + 16 + 4 = 38
+
+##### Voting:
+
+k nearest neighbors (k = 5):
+- calm (29, 7, 2)
+- calm (30, 10, 2)
+- calm (31, 11, 3)
+- medium (42, 22, 8)
+- medium (45, 24, 9)
+
+Final Classification: Calm
+Confidence Rating: 3/5 = 0.60
+
+#### Clearly Medium
+
+Current Reading: (44, 23, 9)
+
+##### Distances:
+- Distance to chaotic (65, 53, 22) → 21 + 30 + 13 = 64
+- Distance to calm (30, 10, 2) → 14 + 13 + 7 = 34
+- Distance to calm (31, 11, 3) → 13 + 12 + 6 = 31
+- Distance to chaotic (74, 39, 13) → 30 + 16 + 4 = 50
+- Distance to chaotic (80, 40, 8) → 36 + 17 + 1 = 54
+- Distance to calm (29, 7, 2) → 15 + 16 + 7 = 38
+- Distance to medium (45, 24, 9) → 1 + 1 + 0 = 2
+- Distance to medium (50, 28, 10) → 6 + 5 + 1 = 12
+- Distance to medium (42, 22, 8) → 2 + 1 + 1 = 4
+
+##### Voting:
+
+k nearest neighbors (k = 5):
+- medium (45, 24, 9)
+- medium (42, 22, 8)
+- medium (50, 28, 10)
+- calm (31, 11, 3)
+- calm (30, 10, 2)
+
+Final Classification: Medium
+Confidence Rating: 3/5 = 0.60
+
+#### In-between
+
+Current Reading: (56, 31, 11)
+
+##### Distances:
+
+- Distance to chaotic (65, 53, 22) → 9 + 22 + 11 = 42
+- Distance to calm (30, 10, 2) → 26 + 21 + 9 = 56
+- Distance to calm (31, 11, 3) → 25 + 20 + 8 = 53
+- Distance to chaotic (74, 39, 13) → 18 + 8 + 2 = 28
+- Distance to chaotic (80, 40, 8) → 24 + 9 + 3 = 36
+- Distance to calm (29, 7, 2) → 27 + 24 + 9 = 60
+- Distance to medium (45, 24, 9) → 11 + 7 + 2 = 20
+- Distance to medium (50, 28, 10) → 6 + 3 + 1 = 10
+- Distance to medium (42, 22, 8) → 14 + 9 + 3 = 26
+
+##### Voting:
+
+k nearest neighbors (k = 5):
+- medium (50, 28, 10)
+- medium (45, 24, 9)
+- medium (42, 22, 8)
+- chaotic (74, 39, 13)
+- chaotic (80, 40, 8)
+
+Final Classification: Medium
+Confidence RatingL 3/5 = 0.60
+
+### Part 1 Conclusion
+This experiment showed that adding a medium label improved the model’s ability
+to represent in-between moods. However, defining confidence only by vote
+strength was not sufficient, since both clearly medium and borderline cases
+received the same score. This suggests that a better confidence method should
+also account for distance separation between competing classes. This makes me think that using the distances between the current point and the nearest neighbors will be helpful
+
+### *Part 2*
+
+In this part, I am going to test out using the distances between the current reading and the nearest neighbors to see if that provides for a more accurate confidence rating. In other words, a prediction should have higher confidence when the winning class is much closer than the runner-up class.
+
+To calculate this, I am going to:
+- Find the predicted class as done before
+- Take the neighbors from the predicted class and the runner-up class
+- Compute the average distances for each
+- Compare them
+
+I am going to use the previously determined current points, stored data points, distance calculations, and predictions as before, and am not going to rewrite all of them.
+
+### Clearly Calm
+Current Point: (24, 6, 4)
+#### Final Prediction: Calm
+Calm Stored Points:
+- (30, 10, 2) → calm
+- (31, 11, 3) → calm
+- (29, 7, 2) → calm
+
+Distances:
+- Distance to calm (30, 10, 2) → 6 + 4 + 2 = 12
+- Distance to calm (31, 11, 3) → 7 + 5 + 1 = 13
+- Distance to calm (29, 7, 2) → 5 + 1 + 2 = 8
+
+Average Distance:
+(12 + 13 + 8) / 3 = 33 / 3 = **11**
+
+#### Runner-up: Medium
+Closest Medium Stored Points:
+- (45, 24, 9) → medium
+- (50, 28, 10) → medium
+- (42, 22, 8) → medium
+
+Distances:
+- Distance to medium (42, 22, 8) → 18 + 16 + 4 = 38
+- Distance to medium (45, 24, 9) → 21 + 18 + 5 = 44
+
+
+Average Distance:
+(44 + 38) / 3 = 82 / 2 = **41**
+
+#### Distance Gap
+41 - 11 = 30
+
+Since a gap of 30 is large, the confidence rating will be "high", although I need to make specific thresholds for the different ratings
+
+### Clearly Medium
+Current Point: (44, 23, 9)
+#### Final Prediction: Medium
+Medium Stored Points:
+- (45, 24, 9) → medium
+- (50, 28, 10) → medium
+- (42, 22, 8) → medium
+
+Distances:
+- Distance to medium (45, 24, 9) → 1 + 1 + 0 = 2
+- Distance to medium (50, 28, 10) → 6 + 5 + 1 = 12
+- Distance to medium (42, 22, 8) → 2 + 1 + 1 = 4
+
+Average Distance:
+(2 + 12 + 4) / 3 = 18 / 3 = **6**
+
+#### Runner-up: Calm
+Closest Calm Stored Points: 
+- (30, 10, 2) → calm
+- (31, 11, 3) → calm
+
+Distances:
+- Distance to calm (30, 10, 2) → 14 + 13 + 7 = 34
+- Distance to calm (31, 11, 3) → 13 + 12 + 6 = 31
+
+Average Distance:
+(34 + 31) / 2 = 65 / 2 = **32.5**
+
+#### Distance Gap
+32.5 - 6 = 26.5
+
+Since a gap of 26.5 is large, the confidence rating will be "high", although I need to make specific thresholds for the different ratings
+
+### In-between
+Current Point: (56, 31, 11)
+#### Final Prediction: Medium
+Medium Stored Points:
+- (45, 24, 9) → medium
+- (50, 28, 10) → medium
+- (42, 22, 8) → medium
+
+Distances:
+- Distance to medium (45, 24, 9) → 11 + 7 + 2 = 20
+- Distance to medium (50, 28, 10) → 6 + 3 + 1 = 10
+- Distance to medium (42, 22, 8) → 14 + 9 + 3 = 26
+
+Average Distance:
+(20 + 10 + 26) / 3 = 56 / 3 ≈ **18.67**
+
+#### Runner-up: Chaotic
+Closest Chaotic Points:
+- chaotic (74, 39, 13)
+- chaotic (80, 40, 8)
+
+Distances:
+- Distance to chaotic (74, 39, 13) → 18 + 8 + 2 = 28
+- Distance to chaotic (80, 40, 8) → 24 + 9 + 3 = 36
+
+Average Distance:
+(28 + 36) / 2 = 64 / 2 = **32**
+
+#### Distance Gap
+32 - 18.67 = 13.33
+
+Since this is a smaller gap compared to the other two tests, this should be classified as a "medium" confidence, although I need to make specific thresholds for the different ratings
+
+### Part 2 Conclusion:
+Changing the way I calculated the confidence rating improved the accuracy of these. When testing points that were clearly one mood, the confidence rating was high, as opposed to when I tested a point which was more in-between two labels, where it gave me a medium rating. This shows that the usage of distances in the calculation for the confidence score helps give an accurate result.
+
+*******FINISH CONCLUSIONS AND CHECK EXPERIMENT 3 OVER. UPDATE THE OTHER LOGS WITH INFO ABOUT THIS*******
+
+
+
+
+
+
+
+
+
+
+
+
