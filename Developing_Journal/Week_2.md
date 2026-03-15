@@ -62,6 +62,8 @@ This experiment will show me how many mood labels is too many labels. It will al
   
 ## Notes & Observations
 - Experiment 2 taught me a lot about how the different methods (no averaging, simple averaging, and weighted averaging) would affect accuracy and responsiveness, especially when mood flips were involved. No averaging produced a very stable and quick response, but it is affected greatly by reading noise. Simple averaging reduced noise, but introduced a very high amount of latency, meaning that all of the mood labels were the incorrect mood. Finally, using weighted averaging reduced noise just as simple averaging did, but also had less latency, with at least one of the data points being the correct mood in all of the tests. This showed me that using a weighted average would be the most logical choice for this scenario.
+- Using nearest-neighbor voting handles label noise, while using weighted averaging handles sensor noise, so using both is ideal
+- After completing Experiment 2, I stopped working on this project for a while, and am starting to get back into it mid-March. 
   
 ## End-of-Week Reflection (to be completed later)
 - What worked:
