@@ -30,4 +30,5 @@ recent_readings = [
 
 
 print("Recent Readings:", recent_readings)
-  
+
+print(stored_points)
