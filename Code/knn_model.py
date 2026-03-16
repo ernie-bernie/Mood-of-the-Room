@@ -30,10 +30,8 @@ recent_readings = [
 
 
 
-print("Recent Readings:", recent_readings)
-
-print(stored_points)
-
-print("Program started")
+def weighted_average(readings):
+    print("This is where I will first calculate the weighted average of the recent readings.")
   
 
+weighted_average(recent_readings)
