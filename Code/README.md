@@ -31,6 +31,15 @@ Confidence is calculated using the **distance gap** between:
 
 A larger gap indicates a more confident prediction.
 
+## Final Algorithm
+
+1. Sensor Readings
+2. Weighted Averaging
+3. Manhattan Distance Calculation
+4. k-Nearest Neighbor Voting
+5. Distance-Based Confidence
+6. Final Mood Prediction
+
 ## Current Status
 
 This folder currently contains prototype code using simulated data.
