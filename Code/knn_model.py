@@ -29,11 +29,11 @@ recent_readings = [
 
 
 
-<<<<<<< HEAD
+
 print("Recent Readings:", recent_readings)
 
 print(stored_points)
-=======
+
 print("Program started")
   
->>>>>>> 1c0281866477f9175ecb09b0591812d905115e6c
+
