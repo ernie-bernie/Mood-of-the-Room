@@ -29,5 +29,5 @@ recent_readings = [
 
 
 
-def weighted_average(readings):
+print(stored_points)
   
