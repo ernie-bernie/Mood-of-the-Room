@@ -35,6 +35,7 @@ These conclusions will help me with this week's work.
 - Does weighted averaging respond faster to sudden changes?
 - Does weighted averaging make the response more accurate?
 - How should recent sensor readings be weighted?
+- How could a confidence rating help and how would it work?
  
 ## Planned Experiments
 ### Experiment #2 – Temporal Averaging
@@ -43,8 +44,7 @@ Planned comparison:
 - Simple average of 3 consecutive readings
 - Weighted average favoring recent readings
 
-This experiment will focus on how averaging affects mood stability and
-response time during sudden changes.
+This experiment will focus on how averaging affects mood stability andresponse time during sudden changes.
 
 ### Experiment #3 - Increasing Mood labels
 Planned comparison:
@@ -63,7 +63,8 @@ This experiment will show me how many mood labels is too many labels. It will al
 ## Notes & Observations
 - Experiment 2 taught me a lot about how the different methods (no averaging, simple averaging, and weighted averaging) would affect accuracy and responsiveness, especially when mood flips were involved. No averaging produced a very stable and quick response, but it is affected greatly by reading noise. Simple averaging reduced noise, but introduced a very high amount of latency, meaning that all of the mood labels were the incorrect mood. Finally, using weighted averaging reduced noise just as simple averaging did, but also had less latency, with at least one of the data points being the correct mood in all of the tests. This showed me that using a weighted average would be the most logical choice for this scenario.
 - Using nearest-neighbor voting handles label noise, while using weighted averaging handles sensor noise, so using both is ideal
-- After completing Experiment 2, I stopped working on this project for a while, and am starting to get back into it mid-March. 
+- After completing Experiment 2, I stopped working on this project for a while, and am starting to get back into it mid-March.
+- Experiment 3 helped me understand the benefit of using another "middle" mood. It improved the accuracy of the final answer, and allowed for a less forced, incorrect answer. In addition to this, adding a confidence rating by just finding the proportion of votes could get the same "confidence" for two completely different inputs. This led me to factor in distances between the input and the point stored as the moods. This increased the effectiveness of the confidence rating, and can now help the user understand if the prediction is accurate or not.
   
 ## End-of-Week Reflection (to be completed later)
 - What worked:
