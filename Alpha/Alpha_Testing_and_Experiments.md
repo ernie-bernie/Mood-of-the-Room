@@ -182,7 +182,7 @@ Overall, this experiment validates the use of Manhattan distance-based voting as
 Test how different types of averaging (no averaging, simple average, and weighted average) affect stability, during jitter and sudden changes, and responsiveness
 
 ### Setup:
-Assume the sensors are light (L), noise (N), and moption sensors (M)
+Assume the sensors are light (L), noise (N), and motion sensors (M)
   
 Assume that the previously labeled data points are true, and that the labels were given by the same person so there are no subjective errors
   
@@ -557,7 +557,7 @@ Based on these results, weighted averaging combined with distance-based voting i
 Add one more mood label (medium) and add a confidence rating based on the split of the votes. Test if adding these things helps with a more accurate final answer.
 
 ### Setup:
-Assume the sensors are light (L), noise (N), and moption sensors (M)
+Assume the sensors are light (L), noise (N), and motion sensors (M)
   
 Assume that the previously labeled data points are true, and that the labels were given by the same person so there are no subjective errors
   
@@ -569,7 +569,7 @@ Assume that the classifier is k nearest neighbor voting using Manhattan distance
 
 Assume that the points were averaged with weights of 0.2, 0.3, and 0.5, with the last being the most recent point
 
-Assume that the data points in each "current reading" section are taking consecutively
+Assume that the data points in each "current reading" section are taken consecutively
 
 ###  *Part 1*
 ### Data Points
@@ -600,7 +600,7 @@ For each point:
 - Find the k closest neighbors (k=5 for now)
 - Find the predicted mood using majority voting
 - Calculate the "confidence rating" by finding the proportion of the k nearest neighbors that agree
-- Compare whether the middle label helps improve accuracy
+- Evaluate whether the middle label improves classification accuracy.
 - Compare whether the confidence score gives a good understanding on uncertain cases
 
 ### Calculations:
@@ -684,14 +684,10 @@ k nearest neighbors (k = 5):
 - chaotic (80, 40, 8)
 
 Final Classification: Medium
-Confidence RatingL 3/5 = 0.60
+Confidence Rating: 3/5 = 0.60
 
 ### Part 1 Conclusion
-This experiment showed that adding a medium label improved the model’s ability
-to represent in-between moods. However, defining confidence only by vote
-strength was not sufficient, since both clearly medium and borderline cases
-received the same score. This suggests that a better confidence method should
-also account for distance separation between competing classes. This makes me think that using the distances between the current point and the nearest neighbors will be helpful
+This experiment showed that adding a medium label improved the model’s ability to represent in-between moods. However, defining confidence only by vote strength was not sufficient, since both clearly medium and borderline cases received the same score. This suggests that a better confidence method should also account for distance separation between competing classes. This makes me think that using the distances between the current point and the nearest neighbors will be helpful
 
 ### *Part 2*
 
@@ -701,7 +697,7 @@ To calculate this, I am going to:
 - Find the predicted class as done before
 - Take the neighbors from the predicted class and the runner-up class
 - Compute the average distances for each
-- Compare them
+- Compare the average distances between the predicted class and the runner-up class.
 
 I am going to use the previously determined current points, stored data points, distance calculations, and predictions as before, and am not going to rewrite all of them.
 
@@ -733,7 +729,7 @@ Distances:
 
 
 Average Distance:
-(44 + 38) / 3 = 82 / 2 = **41**
+(44 + 38) / 2 = 82 / 2 = **41**
 
 #### Distance Gap
 41 - 11 = 30
@@ -808,6 +804,13 @@ Since this is a smaller gap compared to the other two tests, this should be clas
 
 ### Part 2 Conclusion:
 Changing the way I calculated the confidence rating improved the accuracy of these. When testing points that were clearly one mood, the confidence rating was high, as opposed to when I tested a point which was more in-between two labels, where it gave me a medium rating. This shows that the usage of distances in the calculation for the confidence score helps give an accurate result.
+
+After computing gap values:
+Calm gap = 30
+Medium gap = 26.5
+In-between gap = 13.33
+
+This suggests that larger distance gaps correspond to clearer classifications, while smaller gaps correspond to borderline cases. Future work will define thresholds that translate distance gaps into confidence categories such as low, medium, and high.
 
 ## Conclusion
 
