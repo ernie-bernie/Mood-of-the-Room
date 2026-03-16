@@ -549,7 +549,7 @@ Based on these results, weighted averaging combined with distance-based voting i
 
 ---
 
-## Experiment #3: 3/14/26
+## Experiment #3: 3/14/26-3/15/26
 ### This experiment has no code or hardware, it is just to add some key features and test what they will do
 
 ### Goal:
@@ -809,9 +809,26 @@ Since this is a smaller gap compared to the other two tests, this should be clas
 ### Part 2 Conclusion:
 Changing the way I calculated the confidence rating improved the accuracy of these. When testing points that were clearly one mood, the confidence rating was high, as opposed to when I tested a point which was more in-between two labels, where it gave me a medium rating. This shows that the usage of distances in the calculation for the confidence score helps give an accurate result.
 
-*******FINISH CONCLUSIONS AND CHECK EXPERIMENT 3 OVER. UPDATE THE OTHER LOGS WITH INFO ABOUT THIS*******
+## Conclusion
 
+This experiment tested whether adding a middle mood label and a confidence rating would improve the system’s ability to interpret room states.
 
+Adding the medium label improved the model’s expressiveness. In the earlier experiments, the classifier was forced to output either calm or chaotic even when the input was somewhere between the two. After introducing medium-labeled points, the model was able to correctly classify intermediate states that were not clearly calm or chaotic.
+
+The first confidence method defined confidence using only vote strength (agreeing neighbors divided by k). However, this method produced the same confidence score for clearly medium points and borderline points. This showed that vote strength alone does not fully capture how certain the model’s prediction actually is.
+
+To address this limitation, confidence was revised to also consider distance separation between the predicted class and the next closest competing class. By comparing the average distance of neighbors belonging to the predicted class with the average distance of neighbors belonging to the runner-up class, the confidence score better reflected how strongly the predicted mood dominated the local neighborhood.
+
+Using this revised method, clearly calm and clearly medium cases showed large distance gaps and therefore high confidence, while borderline cases showed smaller gaps and lower confidence. This confirms that distance-based confidence provides a more informative measure of prediction certainty than vote strength alone.
+
+Overall, this experiment demonstrates that adding a middle mood label improves the system’s ability to represent real-world room states, while a distance-based confidence measure helps communicate how reliable a prediction is. Based on these results, the final system design will use:
+
+- weighted averaging for noise reduction
+- Manhattan distance with k-nearest neighbor voting for classification
+- three mood labels: calm, medium, and chaotic
+- a distance-based confidence measure
+
+These results complete the design phase of the model and provide a clear framework for implementing the algorithm in code, which is most likely the next step.
 
 
 
