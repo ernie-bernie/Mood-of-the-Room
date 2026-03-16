@@ -29,5 +29,5 @@ recent_readings = [
 
 
 
-print(stored_points)
+print("Program started)
   
