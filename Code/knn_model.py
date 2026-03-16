@@ -29,5 +29,5 @@ recent_readings = [
 
 
 
-print("Program started)
+print("Program started")
   
