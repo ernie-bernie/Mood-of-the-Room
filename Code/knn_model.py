@@ -28,11 +28,9 @@ recent_readings = [
 ]
 
 
-
-test_readings= [(24, 6, 4),
-(26, 7, 3),
-(23, 5, 5)
-]
+# -------------------------------
+# Create a function to compute the weighted average of the recent readings
+# -------------------------------
 
 def weighted_average(readings):
 
@@ -58,6 +56,10 @@ print(test_average)
 
 test_point=(24,6,4)
 
+# -------------------------------
+# Create a function to compute the Manhattan distance between the recent readings and a stored point
+# ------------------------------- 
+
 def manhattan_distance(point, stored_point):
 
     L = abs(point[0] - stored_point["L"])
@@ -71,6 +73,9 @@ def manhattan_distance(point, stored_point):
 #Should returen 12
 print(manhattan_distance(test_point, stored_points[1]))
 
+# -------------------------------
+# Create a function to compute the distances between the recent readings and all stored points
+# -------------------------------
 
 def compute_all_distances(point, stored_points):
 
@@ -84,11 +89,19 @@ def compute_all_distances(point, stored_points):
 #Should return [(106, 'chaotic'), (12, 'calm'), (13, 'calm'), (92, 'chaotic'), (94, 'chaotic'), (8, 'calm'), (44, 'medium'), (54, 'medium'), (38, 'medium')]
 print(compute_all_distances(test_point, stored_points))
 
+# -------------------------------
+# Create a function to find the k nearest neighbors based on the computed distances
+# -------------------------------
+
 def get_k_neighbors(distances, k):
 
     sorted_distances = sorted(distances, key=lambda x: x[0])
     neighbors = sorted_distances[:k]
     return neighbors, sorted_distances
+
+# -------------------------------
+# Create a function to predict the mood of the room based on the k nearest neighbors
+# -------------------------------
 
 def predict_mood(point, stored_points, k):
 
@@ -119,6 +132,9 @@ def predict_mood(point, stored_points, k):
 #Should return "calm"
 print(predict_mood(test_point, stored_points, 5))
 
+# -------------------------------
+# Create a function to compute the confidence of the prediction based on the distances of the k nearest neighbors
+# -------------------------------
 
 def compute_confidence(point,stored_points, k):
 
