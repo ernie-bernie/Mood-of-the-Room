@@ -48,7 +48,7 @@ def weighted_average(readings):
 
     return (totalL, totalN, totalM)
 
-test_average = weighted_average(test_readings)
+test_average = weighted_average(recent_readings)
 
 #Should return (24.1, 5.8, 4.2)
 print(test_average)
