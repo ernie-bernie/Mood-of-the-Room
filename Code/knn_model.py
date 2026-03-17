@@ -29,9 +29,22 @@ recent_readings = [
 
 
 
+test_readings= [(24, 6, 4),
+(26, 7, 3),
+(23, 5, 5)
+]
 
 def weighted_average(readings):
-    print("This is where I will first calculate the weighted average of the recent readings.")
-  
+    reading_one = readings[0]
+    reading_two = readings[1]
+    reading_three = readings[2]
+    totalL = reading_one[0] * 0.2 + reading_two[0] * 0.3 + reading_three[0] * 0.5
+    totalN = reading_one[1] * 0.2 + reading_two[1] * 0.3 + reading_three[1] * 0.5
+    totalM = reading_one[2] * 0.2 + reading_two[2] * 0.3 + reading_three[2] * 0.5
+    totalL = round(totalL, 3)
+    totalN = round(totalN, 3)
+    totalM = round(totalM, 3)
+    return (totalL, totalN, totalM)
+Testaverage = weighted_average(test_readings)
+print(Testaverage)
 
-weighted_average(recent_readings)
