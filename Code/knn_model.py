@@ -159,17 +159,17 @@ def compute_confidence(point,stored_points, k):
     calm_distance = calm_distance / calm_amount if calm_amount > 0 else float('inf')
     medium_distance = medium_distance / medium_amount if medium_amount > 0 else float('inf')
     chaotic_distance = chaotic_distance / chaotic_amount if chaotic_amount > 0 else float('inf')
-    if calm_amount and medium_amount > chaotic_amount:
+    if calm_amount > medium_amount and calm_amount > chaotic_amount:
         if calm_distance < medium_distance:
             gap = (medium_distance - calm_distance)
         else:
             gap = (calm_distance - medium_distance)
-    elif medium_amount and chaotic_amount > calm_amount:
+    elif medium_amount > calm_amount and medium_amount > chaotic_amount:
         if medium_distance < chaotic_distance:
             gap = (chaotic_distance - medium_distance)
         else:
             gap = (medium_distance - chaotic_distance)
-    elif chaotic_amount and calm_amount > medium_amount:
+    elif chaotic_amount > calm_amount and chaotic_amount > medium_amount:
         if chaotic_distance < calm_distance:
             gap = (calm_distance - chaotic_distance)
         else:
@@ -182,7 +182,17 @@ def compute_confidence(point,stored_points, k):
         confidence="medium"
     else:
         confidence="low"
+    if gap == float("inf"):
+        return "high", "no competition"
     return confidence, gap
 
-#Should return ("high",26.5)
-print(compute_confidence((44,23,9), stored_points, 5))
+# -------------------------------
+# Test the compute_confidence function with different points
+# -------------------------------
+
+# Should return ("high", 30.0)
+print(compute_confidence((24, 6, 4), stored_points, 5))
+# Should return ("high", "no competition")
+print(compute_confidence((44, 23, 9), stored_points, 5))
+# Should return ("medium", 13.333333333333332)
+print(compute_confidence((56, 31, 11), stored_points, 5))
