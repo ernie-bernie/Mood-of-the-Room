@@ -196,3 +196,25 @@ print(compute_confidence((24, 6, 4), stored_points, 5))
 print(compute_confidence((44, 23, 9), stored_points, 5))
 # Should return ("medium", 13.333333333333332)
 print(compute_confidence((56, 31, 11), stored_points, 5))
+
+
+# -------------------------------
+# Combine the previous functions to create a final function that takes the recent readings and the stored points, and returns the predicted mood and confidence
+# -------------------------------
+
+def predict_room_mood(recent_readings, stored_points, k):
+
+    average_point = weighted_average(recent_readings)
+    predicted_mood = predict_mood(average_point, stored_points, k)
+    confidence, gap = compute_confidence(average_point, stored_points, k)
+
+    return {
+    "mood": predicted_mood,
+    "confidence": confidence,
+    "average_point": average_point,
+    "gap": gap
+}
+
+# Should return (('Mood:', 'calm'), ('Confidence:', 'high'))
+result = predict_room_mood(recent_readings, stored_points, 5)
+print(result)
