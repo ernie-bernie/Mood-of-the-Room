@@ -1,13 +1,10 @@
 # Week #3, Started 3/15/26
 
 ### Context
-This week begins after completing Experiment #3, which tested the addition
-of a middle mood label and a revised confidence rating based on distance
-separation. With Experiments 1–3 complete, the conceptual design of the
-system is now mostly finalized.
+This week begins after completing Experiment #3, which tested the addition of a middle mood label and a revised confidence rating based on distance
+separation. With Experiments 1–3 complete, the conceptual design of the system is now mostly finalized.
 
-The focus of this week is to begin transitioning from research and paper
-experiments into implementation.
+The focus of this week is to begin transitioning from research and paper experiments into implementation.
 
 ## Goals for This Week
 - Finalize the algorithm based on the results of Experiments 1–3
@@ -54,7 +51,7 @@ These conclusions define the system that I will now begin implementing in code.
 - Determining when to move from simulated data to real sensors
 
 ## Notes & Observations
-(This section will be filled in as the week progresses.)
+- On 3/20/26, I completed my first prototype of the code, putting together all of the functions I had created and getting the final output of the predicted mood and the confidence. I am now going to move into testing it with points from Experiment 3
 
 ## End-of-Week Reflection
 - What worked:
