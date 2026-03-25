@@ -215,6 +215,34 @@ def predict_room_mood(recent_readings, stored_points, k):
     "gap": gap
 }
 
-# Should return (('Mood:', 'calm'), ('Confidence:', 'high'))
-result = predict_room_mood(recent_readings, stored_points, 5)
-print(result)
+
+# -------------------------------
+# Test the predict_room_mood function with different recent readings from experiment three's data
+# -------------------------------
+
+calm_readings = [
+    (24, 6, 4),
+    (26, 7, 3),
+    (23, 5, 5)
+]
+
+medium_readings = [
+    (44, 23, 9),
+    (45, 24, 9),
+    (43, 22, 8)
+]
+
+borderline_readings = [
+    (56, 31, 11),
+    (56, 31, 11),
+    (56, 31, 11)
+]
+
+#Should return {'mood': 'calm', 'confidence': 'high', 'average_point': (24.1, 5.8, 4.2), 'gap': 30.0}
+print(predict_room_mood(calm_readings, stored_points, 5))
+
+#Should return {'mood': 'medium', 'confidence': 'high', 'average_point': (44.0, 23.0, 8.666), 'gap': 'no competition'}
+print(predict_room_mood(medium_readings, stored_points, 5))
+
+#Should return {'mood': 'medium', 'confidence': 'medium', 'average_point': (56.0, 31.0, 11.0), 'gap': 13.333333333333332}
+print(predict_room_mood(borderline_readings, stored_points, 5))
