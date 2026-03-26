@@ -146,6 +146,8 @@ def compute_confidence(point,stored_points, k):
     calm_amount=0
     medium_amount=0
     chaotic_amount=0
+    highs=0
+
     for x in neighbors:
         if x[1] == "calm":
             calm_distance += x[0]
@@ -178,24 +180,30 @@ def compute_confidence(point,stored_points, k):
         gap = 0
     if gap>20:
         confidence="high"
+        highs += 1
     elif gap>10:
         confidence="medium"
+        highs = 0
     else:
         confidence="low"
+        highs = 0
     if gap == float("inf"):
-        return "high", "no competition"
-    return confidence, gap
+        return "high", "no competition", highs
+    return confidence, gap, highs
 
 # -------------------------------
 # Test the compute_confidence function with different points
 # -------------------------------
 
-# Expected result: ("high", 30.0)
-print(compute_confidence((24, 6, 4), stored_points, 5))
+# Expected result: (high 30.0)
+computed_confidence, gap, highs = compute_confidence((24, 6, 4), stored_points, 5)
+print(computed_confidence, gap)
 # Expected result: ("high", "no competition")
-print(compute_confidence((44, 23, 9), stored_points, 5))
+computed_confidence, gap, highs = compute_confidence((44, 23, 9), stored_points, 5)
+print(computed_confidence, gap)
 # Expected result: ("medium", 13.333333333333332)
-print(compute_confidence((56, 31, 11), stored_points, 5))
+computed_confidence, gap, highs = compute_confidence((56, 31, 11), stored_points, 5)
+print(computed_confidence, gap)
 
 
 # -------------------------------
@@ -206,13 +214,14 @@ def predict_room_mood(recent_readings, stored_points, k):
 
     average_point = weighted_average(recent_readings)
     predicted_mood = predict_mood(average_point, stored_points, k)
-    confidence, gap = compute_confidence(average_point, stored_points, k)
+    confidence, gap, highs = compute_confidence(average_point, stored_points, k)
 
     return {
     "mood": predicted_mood,
     "confidence": confidence,
     "average_point": average_point,
-    "gap": gap
+    "gap": gap,
+    "highs": highs
 }
 
 
@@ -268,3 +277,23 @@ print(predict_room_mood(chaotic_readings, stored_points, 5))
 #Expected result: {'mood': 'medium', 'confidence': 'medium', 'average_point': (51.3, 35.9, 13.6), 'gap': 10.93333333333334}
 print("\n Calm to Chaotic Test:")
 print(predict_room_mood(calm_to_chaotic_readings, stored_points, 5))
+
+
+
+#-------------------------------
+# Create a function to determine if a point is worthy of being added to the stored points based on if the past readings had "high" confidence
+#-------------------------------
+
+def is_point_worthy(recent_readings, stored_points, k, confidence):
+    highs=0
+    if confidence == "high":
+        highs += 1
+    else:
+        highs=0
+    if highs >=6:
+        print("This point is worthy of being added to the stored points.")
+    prediction = predict_room_mood(recent_readings, stored_points, k)
+    if prediction["confidence"] == "high":
+        return True
+    else:
+        return False
