@@ -52,6 +52,12 @@ These conclusions define the system that I will now begin implementing in code.
 
 ## Notes & Observations
 - On 3/20/26, I completed my first prototype of the code, putting together all of the functions I had created and getting the final output of the predicted mood and the confidence. I am now going to move into testing it with points from Experiment 3
+- After testing with points from Experiment 3, I have concluded that I have successfully created a full working prototype of the mood prediction and confidence rating system. This means I can now move on into testing with many more points, and expand the stored data set
+- After testing more points, all of them had the expected result, which means I will move onto expanding the stored data set. I will need to decide if asking the user for the accuracy of the predicted mood or basing it off of confidence is better.
+- After some consideration, I believe that I will do the following to add the point to th stored data set.
+  - If the confidence is "high" for 6 or more consectutive readings, ONE representative point will be added to the stored data
+  - If the confidence is "low" for 6 or more consecutive readings, the user will be asked for the accurate mood of the room. (This may be implemented later on)
+
 
 ## End-of-Week Reflection
 - What worked:
