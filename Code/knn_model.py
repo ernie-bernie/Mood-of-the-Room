@@ -50,7 +50,7 @@ def weighted_average(readings):
 
 test_average = weighted_average(recent_readings)
 
-#Should return (24.1, 5.8, 4.2)
+#Expected result: (24.1, 5.8, 4.2)
 print(test_average)
 
 
@@ -70,7 +70,7 @@ def manhattan_distance(point, stored_point):
 
     return distance
 
-#Should returen 12
+#Expected result: 12
 print(manhattan_distance(test_point, stored_points[1]))
 
 # -------------------------------
@@ -86,7 +86,7 @@ def compute_all_distances(point, stored_points):
 
     return distances
 
-#Should return [(106, 'chaotic'), (12, 'calm'), (13, 'calm'), (92, 'chaotic'), (94, 'chaotic'), (8, 'calm'), (44, 'medium'), (54, 'medium'), (38, 'medium')]
+#Expected result: [(106, 'chaotic'), (12, 'calm'), (13, 'calm'), (92, 'chaotic'), (94, 'chaotic'), (8, 'calm'), (44, 'medium'), (54, 'medium'), (38, 'medium')]
 print(compute_all_distances(test_point, stored_points))
 
 # -------------------------------
@@ -129,7 +129,7 @@ def predict_mood(point, stored_points, k):
     else:
         return "tie"
 
-#Should return "calm"
+#Expected result: "calm"
 print(predict_mood(test_point, stored_points, 5))
 
 # -------------------------------
@@ -190,11 +190,11 @@ def compute_confidence(point,stored_points, k):
 # Test the compute_confidence function with different points
 # -------------------------------
 
-# Should return ("high", 30.0)
+# Expected result: ("high", 30.0)
 print(compute_confidence((24, 6, 4), stored_points, 5))
-# Should return ("high", "no competition")
+# Expected result: ("high", "no competition")
 print(compute_confidence((44, 23, 9), stored_points, 5))
-# Should return ("medium", 13.333333333333332)
+# Expected result: ("medium", 13.333333333333332)
 print(compute_confidence((56, 31, 11), stored_points, 5))
 
 
@@ -234,15 +234,37 @@ medium_readings = [
 
 borderline_readings = [
     (56, 31, 11),
-    (56, 31, 11),
-    (56, 31, 11)
+    (57, 32, 12),
+    (59, 29, 14)
 ]
 
-#Should return {'mood': 'calm', 'confidence': 'high', 'average_point': (24.1, 5.8, 4.2), 'gap': 30.0}
+chaotic_readings = [
+    (82, 49, 18),
+    (83, 47, 20),
+    (78, 51, 17)
+]
+
+calm_to_chaotic_readings = [
+    (24, 16, 6),
+    (25, 24, 13),
+    (78, 51, 17)
+]
+#Expected result: {'mood': 'calm', 'confidence': 'high', 'average_point': (24.1, 5.8, 4.2), 'gap': 30.0}
+print("\n Calm Test:")
 print(predict_room_mood(calm_readings, stored_points, 5))
 
-#Should return {'mood': 'medium', 'confidence': 'high', 'average_point': (44.0, 23.0, 8.666), 'gap': 'no competition'}
+#Expected result: {'mood': 'medium', 'confidence': 'high', 'average_point': (44.0, 23.0, 8.666), 'gap': 'no competition'}
+print("\n Medium Test:")
 print(predict_room_mood(medium_readings, stored_points, 5))
 
-#Should return {'mood': 'medium', 'confidence': 'medium', 'average_point': (56.0, 31.0, 11.0), 'gap': 13.333333333333332}
+#Expected result: {'mood': 'medium', 'confidence': 'low', 'average_point': (57.8, 30.3, 12.8), 'gap': 9.333333333333332}
+print("\n Borderline Test:")
 print(predict_room_mood(borderline_readings, stored_points, 5))
+
+#Expected result: {'mood': 'chaotic', 'confidence': 'high', 'average_point': (80.3, 49.4, 18.1), 'gap': 'no competition'}
+print("\n Chaotic Test:")
+print(predict_room_mood(chaotic_readings, stored_points, 5))
+
+#Expected result: {'mood': 'medium', 'confidence': 'medium', 'average_point': (51.3, 35.9, 13.6), 'gap': 10.93333333333334}
+print("\n Calm to Chaotic Test:")
+print(predict_room_mood(calm_to_chaotic_readings, stored_points, 5))
