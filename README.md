@@ -51,3 +51,11 @@
 
 
 **Detailed plans, experiments, and next steps are documented in the Developing Journal.**
+
+## What came next, 3/28/26
+
+The hardware implementation for this project was never fully completed, but the software concepts it produced — signal noise reduction, moving average filtering, distance-based classification, and data voting — became the foundation for the next project.
+
+Hitting the limits of environmental sensors raised a deeper question: instead of measuring the mood of a room, what if we measured mood at the source — the brain itself?
+
+That question became **[NeuroBeat](https://github.com/ernie-bernie/NeuroBeat)**.
